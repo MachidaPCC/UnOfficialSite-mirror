@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>05 | 2026 | 日記 | 都立町田高校パソコン同好会非公式サイト</title>
+  <link rel="icon" sizes="32x32" href="/favicon.ico" />
+  <link id="custom-style" rel="stylesheet" type="text/css" href="/css/blue/main.css">
+  <script type="text/javascript" src="/js/init.js"></script>
+</head>
+<body><script type="text/javascript" charset="utf-8" src="//asumi.shinobi.jp/encount"></script>
+
+<header>
+<a id="top-title" href="/">
+  <span>都立町田高校<span>パソコン同好会<span>非</span>公式サイト</span></span>
+</a>
+</header>
+<header id="sticky-header">
+  <nav id="tab-menu">
+    <ul>
+    <li><a href="/">home</a></li>
+    <li><a href="/about/">about</a></li>
+    <li class="here"><a href="/diary/">diary</a></li>
+    <li><a href="/members/">members</a></li>
+    <li><a href="/products/">products</a></li>
+    <li><a href="/labo/">labo</a></li>
+    </ul>
+  </nav>
+  <nav class="crumbs">
+    <ol>
+    <li><a href="/">home</a></li>
+    <li><a href="/diary/">diary</a></li>
+    <li><a href="/diary/2026">2026</a></li>
+    <li>05</li>
+    </ol>
+    <span><a class="jump" href="#top-title">ページ上部へ</a></span>
+  </nav>
+</header>
+
+<div id="wrapper" class="wide">
+<nav id="sidebar">
+  <section>
+  <h6>目次</h6>
+  <ol>
+  <li><a href="#03">05/03 おうち</a></li>
+  <li><a href="#04">05/04 おうち</a></li>
+  </ol>
+  </section>
+</nav>
+
+<div id="main">
+  <header>
+    <a href="04.html">←前の月へ</a>
+    <a href="/diary/future.html" class="next">次の月へ→</a>
+  </header>
+  <article id="diaries">
+    <h2>2026/05</h2>
+    <blockquote id="monthlyword">
+      <dl><dt>今月の一言</dt><dd>めいめいびーびじー</dd></dl>
+      <p class="gullgull"><span>午前７時３６分、ホームの向かいでよくみるあいつ</span></p>
+    </blockquote>
+
+<!--↓ここからだからねっ！-->
+<section id="03" class="diary">
+<time datetime="2026-05-03"><h3>05月03日 日曜日</h3></time>
+<div class="author">written by おうち</div>
+<div class="d_content">
+<p>おうちです。更新頻度が落ちてますよ、しっかりしてください。私。</p>
+<br>
+<p>まず、先日宣言したゲームは……ハニカム構造で何かつくろうと思い立ち、伝統らしいので迷路に決まり、いちおう形にはなりました。最大六叉路の六角迷路です。が、いまいち面白みがない。灰色の画面を見つめて延々彷徨うという無味乾燥な<ruby>苦行<rt>クソ</rt></ruby>ゲー。discord にでも投げて感想をもらってみようかしら。</p>
+<p>文化祭で公開する予定のものを漏らすと良くないのでここには一つ前のバージョンを載せます。日記の高さも稼げてお得。</p><br>
+<p>［テンキーで六方向に直接移動］</p>
+<p>［あるいはお好きな方法（HJKL、WASD、方向キー）で</p>
+<p>　上：前進　下：後退　左：左回転　右：右回転　］</p><br>
+<fieldset>
+  <div>
+  <label>diameter <input type="number" id="radius" step="2" /></label>
+  <label>回転 <input type="checkbox" id="check" /></label>
+  <input type="button" id="reset" value="reset" />
+  <svg id="svg" xmlns="http://www.w3.org/2000/svg">
+    <clipPath id="clip"><circle id="hole" /></clipPath>
+    <use clip-path="url(#clip)" href="#g"><g id="g">
+      <polygon id="hex" />
+      <path id="path" />
+      <circle id="goal" />
+      <polygon id="player" />
+    </g></use>
+  </svg>
+  </div>
+</fieldset>
+<style>fieldset{display:grid}svg{height:min(50vw,50vh)}</style>
+<script>document.addEventListener("DOMContentLoaded",()=>{const t=document.getElementById("radius"),e=document.getElementById("check"),n=document.getElementById("reset"),o=document.getElementById("svg"),r=document.getElementById("g"),s=document.getElementById("hole"),u=document.getElementById("hex"),l=document.getElementById("path"),i=document.getElementById("goal"),a=document.getElementById("player"),c=(o.getBoundingClientRect(),[[-1,1,0],[-1,0,1],[0,-1,1],[1,-1,0],[1,0,-1],[0,1,-1]]),y=[[0,-1],[-Math.sqrt(3)/2,1],[0,.5],[Math.sqrt(3)/2,1]];let m,k,g,h,b=0,A="",f=12,E=f+1,p=15;const v=180;t.value=f,u.setAttribute("fill","#000"),l.setAttribute("stroke","#fff"),l.setAttribute("stroke-width",22.5),l.setAttribute("stroke-linecap","round"),i.setAttribute("fill","#f00"),a.setAttribute("fill","#0a0");const M=t=>t[Math.floor(Math.random()*t.length)],B=(t,e)=>[t[0]+e[0],t[1]+e[1],t[2]+e[2]],I=t=>Math.max(Math.abs(t[0]),Math.abs(t[1]),Math.abs(t[2])),w=(t,e)=>[p*(1.5*t)+v,p*(Math.sqrt(3)/2*t+Math.sqrt(3)*e)+v],L=()=>{const[t,n]=w(h[0],h[1]),[o,d]=w(m[0],m[1]),u=y.map(t=>[t[0]*p+o,t[1]*p+d].join(",")).join(" "),c=`translate(${v-o}, ${v-d}) rotate(${e.checked?[60*(2-b),o,d]:[0,0,0]})`;l.setAttribute("d",A),i.setAttribute("cx",t),i.setAttribute("cy",n),i.setAttribute("r",11.25),a.setAttribute("points",u),a.setAttribute("transform",`rotate(${60*(b-2)}, ${o}, ${d})`),r.setAttribute("transform",c),s.setAttribute("cx",v),s.setAttribute("cy",v),s.setAttribute("r",180)},j=()=>{k=[],g={};let t="";for(d of c)d=d.map(t=>t*(E+1)),t+=w(d[0],d[1]).join(",")+" ";u.setAttribute("points",t);for(let t=-E;t<=E;t++)for(let e=-E;e<=E;e++){const n=-t-e,o=[t,e,n],r=I(o);r>E||(r!==E&&t%2==0&&e%2==0&&n%2==0?(g[o]=2,k.push(o)):g[o]=1)}h=[0,f,-f],(()=>{let t=0,e=[h];for(A="";e.length;){const n=e[e.length-1],o=c.filter(t=>{const e=B(B(n,t),t);return 2===g[e]});if(g[n]=0,!o.length){e.pop();continue}const r=M(o),s=B(n,r),d=B(s,r);g[s]=0,A+="M"+w(n[0],n[1]).join(" "),A+="L"+w(d[0],d[1]).join(" "),e.push(d),e.length>t&&(m=d,t=e.length)}})(),L()},$=t=>{for(let e=0;e<2;e++){const e=B(m,c[(b+t)%6]);0===g[e]&&(m=e)}L(),setTimeout(()=>{var t;t=h,m.toString()===t.toString()&&(alert("congrats!"),j())},100)};n.addEventListener("click",j),t.addEventListener("change",e=>{t.value=Number(t.value)+t.value%2,f=Number(t.value),E=Number(f)+1,j()}),document.body.addEventListener("keydown",t=>"ArrowUp"===t.key||"w"===t.key||"k"===t.key?$(0):"ArrowDown"===t.key||"s"===t.key||"j"===t.key?$(3):(t=>{b=(b+t)%6,L()})("ArrowLeft"===t.key||"a"===t.key||"h"===t.key?5:"ArrowRight"===t.key||"d"===t.key||"l"===t.key?1:0)),document.body.addEventListener("keydown",t=>{console.log(t.key),"7"===t.key?b=1:"8"===t.key?b=2:"9"===t.key?b=3:"1"===t.key?b=0:"2"===t.key?b=5:"3"===t.key&&(b=4),[1,2,3,7,8,9].includes(Number(t.key))&&($(0),L())}),j()});</script>
+<br>
+近況報告が続きます。いよいよ体育祭が近づく中、パソ同でも動きがありました。なんと部対抗リレーに出場するというのです。部長会で参加が募られてはいましたがどうせやらんだろうとガン無視をキメていたところkb から申し出があり、頭数も揃うとまで言われてしまい、79 期から kb、いっつー、N 氏、78 期から 2 人の計 5 人が走るそうです。デスクトップの模型を担ぐらしい。ちなみに私の発案で騎馬を組むことにもなりました。「オタクっぽい服装」も必要で、kb 曰く「チェック柄のシャツ」が良いとのこと。<s>あなたたちは<a href="//www.s-coop.net/lifestage/backnumber/2014/pdf/1405_10-11.pdf">京大</a>でも目指しているんですか。</s></p>
+<div class="shiritori">
+<h5>しりとり</h5>
+<dl>
+<dt>こぬ（こぬ）</dt>
+<dd>かわいいきのこ（かわいい）</dd>
+</dl>
+</div>
+</div>
+<p class="jump"><a class="jump" href="#top-title">ページ上部へ</a></p>
+</section>
+<!--↑ここまでだからねっ！-->
+
+<!--↓ここからだからねっ！-->
+<section id="04" class="diary">
+<time datetime="2026-05-04"><h3>05月04日 月曜日</h3></time>
+<div class="author">Written by: おうち</div>
+<div class="d_content">
+<p>こんにちはおうちです連続更新するゾ〜！</p>
+<p>てなわけで（nidaｾﾝｾｰ）久々の小説紹介はポー「黒猫・黄金虫」です（<a href="//www.aozora.gr.jp/index_pages/person95.html">青空文庫</a>で読める）。ずっと「おうごんちゅう」だと思っていたのですが「こがねむし」が正。「くろねこ -> こがねむし」でしりとりになっていますね。最後はきっと「早すぎた埋葬」「ウィリアム・ウィルソン」になることでしょう。モルグ街はジャンルが違うのでハブる……いや黄金虫もこっちよりだな。聞かなかったことにしてください。</p>
+<p>上段の冗談はさておき、この本はポー作品を雑多に集めた短編集です。昭和 26 年発行、52 年改訂の佐々木直次郎訳。文体が相応に古いのでそれだけでワクワクしてしまいます。新旧の訳を比べるとどうしても新しい方に厳しくあたってしまうのは、私が古い言葉遣いをやや好むことと、新しいのだから優秀で当たり前だ（逆も然り）という色眼鏡によるものであり……という言い訳を明日のためにしておきます。明日は古典新訳から「黒猫／モルグ街の殺人」を紹介するので。双方に収録された「黒猫」「ウィリアム・ウィルソン」は細かく比べられるかも。いや、原著を持ち合わせていないので比べてもあまり意味がないかも。</p>
+<p>まあいいや、各作品の紹介に移ります。最近短編ばっかなのでこの形式もお馴染みですな。mackenzie 氏が dl 要素にハマった気持ちがよく分かる。</p>
+<dl>
+<dt>黒猫</dt>
+<dd>生来優しく動物好きだった主人公だが、酒に溺れて天邪鬼の精神に取り憑かれてしまう。ポーにとって重要だったのか、あるいはネタ切れだったのか、理由は知らないが他の作品でも繰り返される共通の題材が多いのが目立った。隠された良心が自白するという結末は「邪鬼」「告げ口心臓」に通じる（とくに「邪鬼」の前半では天邪鬼の精神について詳しく語られている）し、良心が形を持って現れるという点ではそのまま「ウィリアム・ウィルソン」である。「アモンティリャードの樽」も、小川訳では誰か（神父）に告解しているという解釈であるから、同じ括りにできなくはない。ポーの書く（謎と解決を伴わない）犯罪の物語は大体において同じ問題を扱っていると考えても良いのかもしれない。</dd>
+<dt>アッシャー家の崩壊</dt>
+<dd>薄暗い雰囲気に満ちた作品。ポーの怪奇小説では随一の面白さだと思う。それにしても、アッシャーが「思い切って言えなかった」のは何故なのだろう。妹の復讐を恐れ、結局そのとおりになったわけだが、深く愛しているのではなかったか。野晒しの墓には埋めるまいとわざわざ家の地下に棺を納めたのはなんだったのか。ちなみに後に題材の一つを繰り返して「早すぎた埋葬」を書いている。やっぱり短編はてきとうで詩作の方が大事だったのかな。うーん。</dd>
+<dt>ウィリアム・ウィルスン</dt>
+<dd>ここだけは文庫に合わせて「ウィルスン」とした。<br>自身の平凡な名を嫌う主人公は、同姓同名の人物に出会い、悪事を度々阻止されるようになる。ついに直接対決を挑むが……。先述の通りこの同姓同名のウィルソンはあからさまに主人公の良心の権化である。あくまで怪奇小説なので良心が実体を伴うことへの説明づけはないが、夜、彼の寝顔を確認する場面などは実は別人であるとして理屈付けられなくはない。だとしても他の部分はもっと別な意味付けをしなくてはならないが、面倒なのでここで語りはしない。あるいは明日書くやもしれぬ。</dd>
+<dt>メールストロムの旋渦</dt>
+<dd>漁師が大渦に巻き込まれるという冒険物語だが、いかにして助かったかという謎とその解決を伴ってもいる。水の場面ということもあり、つい <q>逆に考えるんだ</q> を思い出すなど。</dd>
+<dt>黄金虫</dt>
+<dd>暗号もの。頻度分析で容易に解読できるつくりなので大したことはないのだが、小説家にしては簡明な説明で良かった。そのおかげか物語部分ともさほど違和感なく融和しており、南條範夫「黒い九月の手」のような悲惨な失敗例とはなっていない。ちなみにあれは論理パズルにおまけでストーリーを付けたような稀に見る駄作なので諸君は読まなくて良いぞ。</dd>
+</dl>
+<div class="shiritori">
+<h5>しりとり</h5>
+<dl>
+<dt>ヌラフ（ぬらふ）</dt>
+<dd>イノシシ。カービィ2 ではレベル 2 の大ボスを務め、以降はザコに降格するも多くの本編作品に登場し、他媒体でも一般キャラクターにしては高めの頻度で見える。役割を奪われたネリーが可哀想でならない。</dd>
+</dl>
+</div>
+</div>
+<p class="jump"><a class="jump" href="#top-title">ページ上部へ</a></p>
+</section>
+<!--↑ここまでだからねっ！-->
+
+  </article>
+  <p class="zigzag"><span>長い文章でも上手くアニメーションするように改善したんだぜ</span></p>
+  <footer>
+    <a href="04.html">←前の月へ</a>
+    <a href="/diary/future.html" class="next">次の月へ→</a>
+  </footer>
+</div><!--/main-->
+</div><!--/wrapper-->
+
+<footer id="foot">
+<address id="copyright">
+  Copyright© Machida High School Personal Computer Club
+</address>
+<div class="tdftdiv">
+  <ul class="tdftad">
+  <li><a href="http://blog.ninja.co.jp/" target="_top">ブログ 無料</a></li>
+  <li class="tdftpr"><a href="http://www.menkyo.co.jp/" target="_top">合宿免許</a></li>
+  <li class="tdftpr"><a href="http://www.s-b-c.net/natural/" target="_top">奥二重</a></li>
+  <li class="tdftpr"><a href="http://www.r-agent.co.jp/" target="_top">転職</a></li>
+  <li class="tdftlink"><a href="http://www.comsort.jp/" target="_top">SEO対策</a><!--579|799--></li>
+  </ul>
+</div>
+<div style="text-align: center;"><div style="display: inline-block; position: relative; z-index: 9999;"><script type="text/javascript" charset="utf-8" src="//asumi.shinobi.jp/fire?f=434"></script></div></div>
+</footer>
+
+<div style="text-align: center;"><div style="display: inline-block; position: relative; z-index: 9999;"><script type="text/javascript" charset="utf-8" src="//asumi.shinobi.jp/fire?f=434"></script></div></div></body>
+</html>
