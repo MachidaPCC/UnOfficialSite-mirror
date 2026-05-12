@@ -47,6 +47,9 @@
   <li><a href="#07">05/07 おうち</a></li>
   <li><a href="#08">05/08 おうち</a></li>
   <li><a href="#10">05/10 おうち</a></li>
+  <li><a href="#11">05/11 おうち</a></li>
+  <li><a href="#12">05/12 おうち</a></li>
+  <li><a href="#121">05/12 kb</a></li>
   </ol>
   </section>
 </nav>
@@ -94,7 +97,7 @@
 <style>fieldset{display:grid}svg{height:min(50vw,50vh)}</style>
 <script>document.addEventListener("DOMContentLoaded",()=>{const t=document.getElementById("radius"),e=document.getElementById("check"),n=document.getElementById("reset"),o=document.getElementById("svg"),r=document.getElementById("g"),s=document.getElementById("hole"),u=document.getElementById("hex"),l=document.getElementById("path"),i=document.getElementById("goal"),a=document.getElementById("player"),c=(o.getBoundingClientRect(),[[-1,1,0],[-1,0,1],[0,-1,1],[1,-1,0],[1,0,-1],[0,1,-1]]),y=[[0,-1],[-Math.sqrt(3)/2,1],[0,.5],[Math.sqrt(3)/2,1]];let m,k,g,h,b=0,A="",f=12,E=f+1,p=15;const v=180;t.value=f,u.setAttribute("fill","#000"),l.setAttribute("stroke","#fff"),l.setAttribute("stroke-width",22.5),l.setAttribute("stroke-linecap","round"),i.setAttribute("fill","#f00"),a.setAttribute("fill","#0a0");const M=t=>t[Math.floor(Math.random()*t.length)],B=(t,e)=>[t[0]+e[0],t[1]+e[1],t[2]+e[2]],I=t=>Math.max(Math.abs(t[0]),Math.abs(t[1]),Math.abs(t[2])),w=(t,e)=>[p*(1.5*t)+v,p*(Math.sqrt(3)/2*t+Math.sqrt(3)*e)+v],L=()=>{const[t,n]=w(h[0],h[1]),[o,d]=w(m[0],m[1]),u=y.map(t=>[t[0]*p+o,t[1]*p+d].join(",")).join(" "),c=`translate(${v-o}, ${v-d}) rotate(${e.checked?[60*(2-b),o,d]:[0,0,0]})`;l.setAttribute("d",A),i.setAttribute("cx",t),i.setAttribute("cy",n),i.setAttribute("r",11.25),a.setAttribute("points",u),a.setAttribute("transform",`rotate(${60*(b-2)}, ${o}, ${d})`),r.setAttribute("transform",c),s.setAttribute("cx",v),s.setAttribute("cy",v),s.setAttribute("r",180)},j=()=>{k=[],g={};let t="";for(d of c)d=d.map(t=>t*(E+1)),t+=w(d[0],d[1]).join(",")+" ";u.setAttribute("points",t);for(let t=-E;t<=E;t++)for(let e=-E;e<=E;e++){const n=-t-e,o=[t,e,n],r=I(o);r>E||(r!==E&&t%2==0&&e%2==0&&n%2==0?(g[o]=2,k.push(o)):g[o]=1)}h=[0,f,-f],(()=>{let t=0,e=[h];for(A="";e.length;){const n=e[e.length-1],o=c.filter(t=>{const e=B(B(n,t),t);return 2===g[e]});if(g[n]=0,!o.length){e.pop();continue}const r=M(o),s=B(n,r),d=B(s,r);g[s]=0,A+="M"+w(n[0],n[1]).join(" "),A+="L"+w(d[0],d[1]).join(" "),e.push(d),e.length>t&&(m=d,t=e.length)}})(),L()},$=t=>{for(let e=0;e<2;e++){const e=B(m,c[(b+t)%6]);0===g[e]&&(m=e)}L(),setTimeout(()=>{var t;t=h,m.toString()===t.toString()&&(alert("congrats!"),j())},100)};n.addEventListener("click",j),t.addEventListener("change",e=>{t.value=Number(t.value)+t.value%2,f=Number(t.value),E=Number(f)+1,j()}),document.body.addEventListener("keydown",t=>"ArrowUp"===t.key||"w"===t.key||"k"===t.key?$(0):"ArrowDown"===t.key||"s"===t.key||"j"===t.key?$(3):(t=>{b=(b+t)%6,L()})("ArrowLeft"===t.key||"a"===t.key||"h"===t.key?5:"ArrowRight"===t.key||"d"===t.key||"l"===t.key?1:0)),document.body.addEventListener("keydown",t=>{console.log(t.key),"7"===t.key?b=1:"8"===t.key?b=2:"9"===t.key?b=3:"1"===t.key?b=0:"2"===t.key?b=5:"3"===t.key&&(b=4),[1,2,3,7,8,9].includes(Number(t.key))&&($(0),L())}),j()});</script>
 <br>
-近況報告が続きます。いよいよ体育祭が近づく中、パソ同でも動きがありました。なんと部対抗リレーに出場するというのです。部長会で参加が募られてはいましたがどうせやらんだろうとガン無視をキメていたところkb から申し出があり、頭数も揃うとまで言われてしまい、79 期から kb、いっつー、N 氏、78 期から 2 人の計 5 人が走るそうです。デスクトップの模型を担ぐらしい。ちなみに私の発案で騎馬を組むことにもなりました。「オタクっぽい服装」も必要で、kb 曰く「チェック柄のシャツ」が良いとのこと。<s>あなたたちは<a href="//www.s-coop.net/lifestage/backnumber/2014/pdf/1405_10-11.pdf">京大</a>でも目指しているんですか。</s></p>
+近況報告が続きます。いよいよ体育祭が近づく中、パソ同でも動きがありました。なんと部対抗リレーに出場するというのです。部長会で参加が募られてはいましたがどうせやらんだろうとガン無視をキメていたところ kb から申し出があり、頭数も揃うとまで言われてしまい、79 期から kb、いっつー、N 氏、78 期から 2 人の計 5 人が走るそうです。デスクトップの模型を担ぐらしい。ちなみに私の発案で騎馬を組むことにもなりました。「オタクっぽい服装」も必要で、kb 曰く「チェック柄のシャツ」が良いとのこと。<s>あなたたちは<a href="//www.s-coop.net/lifestage/backnumber/2014/pdf/1405_10-11.pdf">京大</a>でも目指しているんですか。</s></p>
 <div class="shiritori">
 <h5>しりとり</h5>
 <dl>
@@ -259,10 +262,10 @@
 <p>TypedArray には Int8Array や Float32Array などのオブジェクトがあります。生のデータであるバッファーを、前者は 1 バイトごとに符号付き整数として、後者は 4 バイトごとに浮動小数点数として解釈して配列のように扱うことができます。他にも数の種類とバイト数の組み合わせで 6 種類くらいあります。Uint16Array とか。</p>
 <p>今回は主に DataView を使いました。wave ファイルでは</p>
 <ul>
-<li>1 バイトの文字</li>
-<li>1 バイトの符号なし整数</li>
-<li>2 バイトの符号なし整数</li>
-<li>2 バイトの符号付き整数</li>
+  <li>1 バイトの文字</li>
+  <li>1 バイトの符号なし整数</li>
+  <li>2 バイトの符号なし整数</li>
+  <li>2 バイトの符号付き整数</li>
 </ul>
 <p>の 4 種類が混在しているので、型の定まった TypedArray は向いていないだろうという判断です。というか、TypedArray ではバイトオーダーを指定することができないので、半強制的にDataViewになるのですよね。</p>
 <p>DataView では配列風の操作はできません。位置とバイト数を指定して手動で入力していきます。また、wave ファイルでは数値は全てリトルエンディアンで扱います。この辺りはプログラムというよりファイルの中身の話なので次回できたらいいかな。</p>
@@ -282,7 +285,93 @@
 </dl>
 </div>
 <p>よしよし。割と良いペース、良い分量で日記が書けていますね。今週は余裕があれば labo の改装もしたいな。前言撤回マシーンなので前々回何言ったとか覚えてませんからね、へっへっへ。</p>
-<p>さらに追記。今回初めて知ったのですが、html 要素に id が付いている場合は javascript でそのまま要素の変数として使えるのですね。びっくり・アンド・べんり。</p>
+<p>さらに追記。今回初めて知ったのですが、id 付きの html 要素は javascript でそのままグローバル変数になるのですね。びっくり。</p>
+</div>
+<p class="jump"><a class="jump" href="#top-title">ページ上部へ</a></p>
+</section>
+<!--↑ここまでだからねっ！-->
+
+<!--↓ここからだからねっ！-->
+<section id="11" class="diary">
+<time datetime="2026-05-11"><h3>05月11日 月曜日</h3></time>
+<div class="author">written by おうち</div>
+<div class="d_content">
+<p>どうも。質より量のおうちです。短めでいきます。質と量というより、量と回数ですけど。</p>
+<br>
+<p>wave ファイル作成機を少しだけ改良したのでその報告を。まず tone: custom の計算式のパースが不正確だったのを修正。さらに、昨日は手抜きでモノラルのみだったのですが、ステレオに対応しました。左右の音量バランスを変えることができます。その関係で入力のインプットを変えました。css の grid layout を使ってみるなど。サイト改装の時にはまだ css をよくわかっていなかったので大分無理のある実装になっているのですが、最近ようやく使い方が分かってきました。ちなみに私が開発者ツールを右側に表示している関係で全体にやや左に偏った配置になっています。</p>
+<br>
+<p>昨日言っていた「別件」はやる気を喪失したのでしばらく触らないかも。まあ labo を賑やかにしたいという当初の目的（ここでは言っていなかったかもしらん）は大体達成できたので良いでしょう。あ、<strong>先輩方</strong>も今 javascript で製作をしているとのことなので、完成した暁には是非 labo で公開してはいかがでしょう。というか、しましょう。products（旧 game）の更新が 2022 年度で止まっているので。去年の IroGuesser や製作者不明のシューティングゲームなんかもそのうちうｐしたい。</p>
+<br>
+<p>せっかく現役でサイト運営しているので、死んだコンテンツはできるだけない方がいいよね。だから mackenzie 氏の代で早くも廃れた labo に鋤を入れているわけで。「最近の更新」によれば私が新たに作ったのは 4 つ……まだ高さで html 講座に負けているのでもう少し作りたいですね。もう遥か昔のことのように思われますが、divtables なんて代物もガラクタボックスにあるのでその内作り直すか。</p>
+<div class="shiritori">
+<h5>しりとり</h5>
+<dl>
+<dt>打たねば鳴らぬ（うたねばならぬ）</dt>
+<dd>口先だけじゃダメよ。</dd>
+</dl>
+</div>
+</div>
+<p class="jump"><a class="jump" href="#top-title">ページ上部へ</a></p>
+</section>
+<!--↑ここまでだからねっ！-->
+
+<!--↓ここからだからねっ！-->
+<section id="12" class="diary">
+<time datetime="2026-05-12"><h3>05月12日 火曜日</h3></time>
+<div class="author">Written by: おうち</div>
+<div class="d_content">
+<p>howdy! おうちです。午後の授業が丸々自習になったのでサクシード進め放題。やったあ！</p>
+<br>
+<p>今日は小説紹介、クリスティーナ・メルドラム「マッドアップル」です。創元推理は相変わらず非推理小説がお好きなようで。雰囲気は「両膝を怪我した私の聖女」「降りていこう」に似ています。認識が曖昧な思春期の少女がどろどろした状況に巻き込まれるという点でも。</p><br>
+<p>母娘 2 人で森に暮らしていた主人公だが、母が死に、さらには引き取られた先の伯母一家も焼失してしまった。主人公は放火と殺人で起訴される。物語は母との暮らしから現在までを辿る過去の様子と、現在の法廷での様子との往復で進んでいく。話全体の内容は大して面白くもなかったのだが、この反復は読ませる構成だった。長めの過去パートは主人公視点で進むので、彼女の思考や事件と直接は関係しない出来事が描写される。一方、短めの法廷パートでは喚問によって客観的な事実と外部の印象が語られていく。法廷パートの方が長さも短ければ現実時間の進行も遅いのだが、淡々と進められるだけ体感の速度は過去パートよりもよほど大きく感じられる。幻想的で緩い流れな過去パートと気になる事実の開示でぐんと引っ張る法廷パートの往復。面白かったです。</p><br><br>
+<p>音声ファイルの解説はしばらくお預けの予定です。読み終わった小説があと 1 冊残っているのと、サイトの更新方法の改善と新しい更新ツールの構想ができたので。</p><br>
+日記が短いので高さを稼ぐためにようつべを貼り付ける。<br>
+<iframe width="300" height="300" src="https://www.youtube.com/embed/MEg8UAL75T0?controls=0&rel=0"></iframe>
+<p>この前の elona の音楽で気に入ったBill Furner 作のもう一曲。クレジットでは（そして初出は）The Tiler なのだが、ようつべに収録されているのがこの beautiful & easy listening なので仕方ない。ちなみに私は 3 拍子や3 連符系の、つまり 3 / 4、6 / 4、6 / 8、12 / 8 拍子の曲が大好き。4 拍子から 3 拍子への編曲も上手くやればとっても楽しい。最近買った「The Sound of Kirby Café 2／サウンド・オブ・カービィ・カフェ2」「The Sound of Kirby Café -Jazz Style-」も 3 拍子に編曲されたものが多く収録されていて嬉しい。私はトリデラからカービィに入ったので公式アレンジで曲が出ると小躍りして喜ぶのですが、wii 以降のメドレー曲ではメモリアル「キミたちとの思い出は忘れない」でハブられスタアラ「だいだんえんの、おもいでたち。」でハブられ、曲もタランザ並に不遇なのでシークレット・クマザキへの失望を募らせていました。そこへ「奥の鏡で、揺れる思い」ですよ。タイトルから奥の鏡→恋する黄色メドレーなのは察しがついたのですが、石川さんのアレンジで音が気持ちEEEEEEEEEE!!!!!!!!!! 長調と短調を同時に流して綺麗にまとめるという凄腕。みなさんも聴きましょう。買ってください。ぜひ。どうぞ。</p>
+<div class="shiritori">
+<h5>しりとり</h5>
+<dl>
+<dt>抜き書き（ぬきがき）</dt>
+<dd>抜粋。</dd>
+</dl>
+</div>
+</div>
+<p class="jump"><a class="jump" href="#top-title">ページ上部へ</a></p>
+</section>
+<!--↑ここまでだからねっ！-->
+
+<!--↓ここからだからねっ！-->
+<section id="12" class="diary">
+<time datetime="2026-05-12"><h3>05月12日 火曜日</h3></time>
+<div class="author">Written by: kb</div>
+<div class="d_content">
+<p>こんちには　kb7です。</p>
+<br>
+<p>黄泉の淵から地獄帰りを果たしました。</p>
+<br>
+<p>最近は、GW近くからanemoiしかしてないですね。</p>
+<br>
+<p>anemoiはKeyの新作フルプライス作品です。</p>
+<p>延期を乗り越えて、4月の終わりごろにようやく発売しました。</p>
+<br>
+<p>今、ヒロイン２√と、サブヒロイン√一本を完走した段階です。</p>
+<p>一応名前を出すと、淡雪√と小詠√、文弥√をクリアしました。</p>
+<p>あとヒロイン２√と、メインヒロイン√、そしてtrueエンド分あります。</p>
+<br>
+<p>今のところ総プレイ時間は40時間ちょっとなんですが、残りの分を考えると、70、80時間ごえになりそうな気がします。</p>
+<p>ヒロイン一本が8時間程度、メインは10時間ぐらいで、trueは6から下手したら10時間をこえるかも、という計算で。</p>
+<p>他にも別のサブヒロインがいそうな気もするので、そう考えると、もっと長くかかりそうですね。</p>
+<p>なんかCG発見率が以上に低い。</p>
+<br>
+<p>まだプレイ途中ですが、もうすでにかなり面白いので、みなさんもプレイすることをお勧めします。</p>
+<p>まあ、何分ボリュームがあるので、あまり初心者にはお勧めしたくないですが。</p>
+<div class="shiritori">
+<h5>しりとり</h5>
+<dl>
+<dt>きまぐれテンプテーション（きまぐれてんぷてーしょん）</dt>
+<dd>2019年9月にシルキーズプラスから発売されたミドルプライス作品。続編がでるぐらいには人気で、全年齢版もあるんだとか。だが、このブランドはエロ方面にも力を入れているから、全年齢でやるのはナンセンスと言わざるを得ない。</dd>
+</dl>
+</div>
 </div>
 <p class="jump"><a class="jump" href="#top-title">ページ上部へ</a></p>
 </section>
