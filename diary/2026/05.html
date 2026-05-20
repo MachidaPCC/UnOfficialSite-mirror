@@ -57,6 +57,8 @@
   <li><a href="#16">05-16 おうち</a></li>
   <li><a href="#17">05-17 おうち</a></li>
   <li><a href="#18">05-18 おうち</a></li>
+  <li><a href="#19">05-19 おうち</a></li>
+  <li><a href="#20">05-20 おうち</a></li>
   </ol>
   </section>
 </nav>
@@ -240,7 +242,7 @@
 <p>迷路を作っていると言いましたが、結局面白くなりそうになかったので <a href="/labo/hexamaze/">labo</a> で雑に公開して終わりにしてしまいます。やはり私にゲーム作りは向いていなかったのでしょう。今は次なる実用品に手を付けています。</p>
 <br>
 <p>以前 elona というゲームを始めたと書きました。少しずつですが進めていますよ。今は戦士ギルドに加入しようとムカデを探しまくっています。ギルド加入の条件はランダムなような気がするのですが、よりによってムカデを倒すというお題を引いたのは運が悪い。全然見つかりません。それに街での楽しみがピアニストでプレイしていた時より減ってしまったのですよね。ピアニストは魅力度が高く、以前は相手から夜伽を持ちかけらることがよくあったのですが、戦士に生まれかわってからはそんなことはめっきりなくなってしまいました。それにしても、女同士男同士でも当然のようにエッチや結婚ができるのがやはりうれしいです。あ、今のは神聖な行為についての話なので下ネタカウントはナシですよ。早く連れの少女と結婚したい。</p>
-<img src="src/20260508_OUCHI_elona.webp" width="600" />
+<img src="src/20260508_elona.webp" width="600" />
 <p>elona は音楽も良いですね。特に王都パルミアのものを気に入ったので配布サイトから入手したのですが、どうやら海外の CD からの転載らしいということが分かったので、自分で購入したいと思い色々調べてみました。Bill Furenr "Her Hand in War" (Beautiful & Easy Listening)。中古 CD の扱いがあるネットショップを色々探したのですが、2007 年と結構前の発売で、あまり有名でもないらしいことも重なり、<ruby>ブッコフ<rt>BookOff</rt></ruby>の売り切れページしか見つかりませんでした。物理メディアにこだわらなければ、何故か youtube、spotify、amazon、apple music で取扱いがあったのですが……手許に置いておきたくて CD を探しているのに、ストリーミングや mp3 で購入しよう、とはなりませんよ。amazon はどうしてオリジナルの音源を扱ってくれないのでしょうか。wav か flac だったらまだ購入を考えたのですがね。</p>
 <iframe width="300" height="300" src="https://www.youtube.com/embed/JbXWzbdzvys?si=ViQ9N5y6UuS9HyFB&fs=0&controls=0&iv_load_policy=0&rel=0"></iframe>
 <p>というわけで。中古の輸入盤を手に入れる方法をご存じの方は是非ご教授ください。</p>
@@ -546,7 +548,7 @@
 <!--↓ここからだからねっ！-->
 <section id="17" class="diary">
 <time datetime="2026-05-17"><h3>05月17日 日曜日</h3></time>
-<div class="author">Written by: </div>
+<div class="author">written by おうち</div>
 <div class="d_content">
 <p>やっほい、おうちだゾ〜。今日は小説紹介と、その後に昨日の続き。</p><br><br>
 <p>ギルバート・アデア「ドリーマーズ」を読みまみた。1968 年フランス、双子の兄妹とその友人という3 人の映画狂が家にこもって乱痴気騒ぎをしている間に……という話。</p>
@@ -584,7 +586,7 @@
 <!--↓ここからだからねっ！-->
 <section id="18" class="diary">
 <time datetime="2026-05-18"><h3>05月18日 月曜日</h3></time>
-<div class="author">Written by: おうち</div>
+<div class="author">written by おうち</div>
 <div class="d_content">
 <p>うーん厄日。今日実施の課題 2 つ小テスト 2 つを今朝まで忘れていた。おうちです。</p><br>
 <p>ネタがないので図書館のことでも喋るか。私が小説を読むときはほとんどの場合町田市立図書館で借りています。以前は駅の向こうの中央図書館をよく利用していたのですが、最近は学校に近いさるびあ図書館の方が利用頻度が高い。積読リスト（「木に生る本」と名付けた）が肥大し、書架から無作為に選ぶよりも予約して借りることの方が増えたので小さい図書館でも困らなくなったからですかね。</p><br>
@@ -613,6 +615,114 @@
 </section>
 <!--↑ここまでだからねっ！-->
 
+<!--↓ここからだからねっ！-->
+<section id="19" class="diary">
+<time datetime="2026-05-19"><h3>05月19日 火曜日</h3></time>
+<div class="author">written by おうち</div>
+<div class="d_content">
+<p>こにちわ、おうちです。物理基礎はほとんど仕上がったものの世界史と化学基礎の暗記が進まず。</p><br>
+<p>今日は先延ばしにしていた音声解説、番外編の wave ファイル構造の話をしますかな。</p><br>
+<p>wave ファイルはバイナリーファイルに分類されます。バイナリーは「2 つ（bin）の（- ary）」という意味です。2 進法の数字を binary digit つまりビット bit といい、2 進数値で構成されるファイルをバイナリーファイルといいます。なお、ファイルを直接弄る際は 4 桁 1 組で 16 進 hexadecimal として扱います。</p><br>
+<p>また wave ファイルは RIFF（Resource Interchange File Format）という形式です。ファイルの中身はチャンクという塊で構成され、各チャンクは</p>
+<ul>
+<li>チャンクタイプを特定する 4 文字のコード</li>
+<li>データ部のサイズ</li>
+<li>データ部</li>
+</ul>
+<p>の 3 部分からなります。データ部の形式はチャンクタイプごとに定義され、チャンクが入れ子になることもあります。</p><br>
+<p>では、実際の wave ファイルを見てみましょう。labo も見比べながら弄ると面白いと思うので埋め込んでしまえ。</p>
+<table id="wavetable">
+<caption>wave ファイル構造</caption>
+<tr><th colspan="6">RIFF</th></tr>
+<tr><th></th><th>ｵﾌｾｯﾄ</th><th>ｻｲｽﾞ</th><th>例</th><th>値</th><th>備考</th></tr>
+<tr><th>0</th><td>00</td><td>4</td><td>52 49 46 46</td><td>RIFF</td><td>RIFF チャンク ID</td></tr>
+<tr><th>1</th><td>04</td><td>4</td><td>44 4e 00 00</td><td>20036</td><td>2 番以降のサイズ</td></tr>
+<tr><th>2</th><td>08</td><td>4</td><td>57 41 56 45</td><td>WAVE</td><td>RIFF タイプ</td></tr>
+<tr><th colspan="6">format</th></tr>
+<tr><th>3</th><td>0c</td><td>4</td><td>66 6d 74 20</td><td>fmt_</td><td>format チャンク ID（後尾 1 字は空白）</td></tr>
+<tr><th>4</th><td>10</td><td>4</td><td>10 00 00</td><td>16</td><td>4～8 番のサイズ</td></tr>
+<tr><th>5</th><td>14</td><td>2</td><td>01 00</td><td>1</td><td>リニア PCM なら 1</td></tr>
+<tr><th>6</th><td>16</td><td>2</td><td>01 00</td><td>1</td><td>モノラルなら 1、ステレオなら 2</td></tr>
+<tr><th>7</th><td>18</td><td>4</td><td>a0 0f 00 00</td><td>4000</td><td>標本化周波数 [Hz]</td></tr>
+<tr><th>8</th><td>1c</td><td>4</td><td>a0 0f 00 00</td><td>4000</td><td>平均データ速度 [byte/s]</td></tr>
+<tr><th>9</th><td>20</td><td>2</td><td>01 00</td><td>1</td><td>ブロックサイズ [byte/sample]</td></tr>
+<tr><th>10</th><td>22</td><td>2</td><td>08 00</td><td>8</td><td>量子化ビット数</td></tr>
+<tr><th colspan="6">data</th></tr>
+<tr><th>11</th><td>24</td><td>4</td><td>64 61 74 61</td><td>data</td><td>data チャンク ID</td></tr>
+<tr><th>12</th><td>28</td><td>4</td><td>20 4e 00 00</td><td>20000</td><td>13 番のサイズ</td></tr>
+<tr><th>13</th><td>2c</td><td>＊</td><td>80 ... ...</td><td>128 ... ...</td><td>振幅</td></tr>
+</table><br>
+<iframe id="wavelabo" src="/labo/wav_file/"></iframe>
+<style>#wavetable{font-family:monospace;}#wavelabo{width:100%;height:min(60vw,60vh)}</style><br><br>
+<p>……時間もないので適当に終わらせてしまおう。数は全てリトルエンディアンで振幅は 8 bit なら符号なし 1 バイト、16 bit なら符号つき 2 バイトの整数。なお、mp3 等のようにタグをつける場合 data チャンクの中に無理やり埋め込む。アルバムアートも jpeg 形式で直にぶち込むというトンデモ仕様である。こんな感じ。</p><br>
+<img src="src/20260519_ID3.webp" width="600" alt="[VSCode のスクリーンショット]"></img>
+<div class="shiritori">
+<h5>しりとり</h5>
+<dl>
+<dt>オアスシ（おあすし）</dt>
+<dd>関サバアジホタテ・ネギトロブリアナゴ</dd>
+</dl>
+</div>
+<p>高さを森杉ですって？　うーん、ぐうの音もでない。まあテスト前なので勘弁してくれろ。表を作るのに時間をかけすぎたのじゃ。ちなみに<a href="/labo/table_gen/">自作のテーブルエディター</a>を使った。色々不便だったのでそのうち改修するかも？</p>
+</div>
+<p class="jump"><a class="jump" href="#top-title">ページ上部へ</a></p>
+</section>
+<!--↑ここまでだからねっ！-->
+
+<!--↓ここからだからねっ！-->
+<section id="20" class="diary">
+<time datetime="2026-05-20"><h3>05月20日 翠曜日</h3></time>
+<div class="author">written by おうち</div>
+<div class="d_content">
+<style>#\32 0{font-family:monospace;}#filesize *{font-size:1.2rem;padding:.5rem;}</style>
+<p>個人的な覚書ですスミマセン。</p><br><br>
+<p>コマンド</p>
+<dl>
+<dt>opus エンコード</dt>
+<dd>opusenc INPUT.wav --bitrate 160 --vbr temp.opus</dd>
+<dt>スペクトログラム表示</dt>
+<dd>sox INPUT.wav -n rate 44.1k spectrogram -o opus.png</dd>
+<dt>差分比較（単体）</dt>
+<dd>ffmpeg -i LEFT.png -i RIGHT.png -filter_complex "[0][1]blend=all_mode=difference" -y output.png</dd>
+<dt>差分比較（並べる）</dt>
+<dd>ffmpeg -i LEFT.png -i RIGHT.png -filter_complex "[0]split[0a][0b];[1]split[1a][1b];[0a][1a]hstack[vs];[0b][1b]blend=all_mode=difference,pad=2*iw:ih:0:0[bl];[vs][bl]vstack" -y output.png</dd>
+</dl><br><br>
+<p>opus vbr ビットレート比較 160k vs 128k</p><br>
+<p>ファイルサイズ比較</p>
+<table id="filesize">
+<tr><th>codec</th><th>kbyte</th><th>rate</th></tr>
+<tr><td>wave</td><td>42410</td><td>1.000</td></tr>
+<tr><td>alac</td><td>25566</td><td>0.603</td></tr>
+<tr><td>flac</td><td>24899</td><td>0.587</td></tr>
+<tr><td>opus (160k)</td><td>4917</td><td>0.116</td></tr>
+<tr><td>opus (128k)</td><td>3944</td><td>0.093</td></tr>
+</table><br><br>
+<p>スペクトログラム比較</p>
+<dl>
+<dt>original</dt>
+<dd><img width="600" src="src/20260520_orig.png"></img></dd>
+<dt>opus 160k</dt>
+<dd><img width="600" src="src/20260520_160k.png"></img></dd>
+<dt>opus 128k</dt>
+<dd><img width="600" src="src/20260520_128k.png"></img></dd>
+<dt>orig vs 160k</dt>
+<dd><img width="600" src="src/20260520_diff_orig-160.png"></img></dd>
+<dt>orig vs 128k</dt>
+<dd><img width="600" src="src/20260520_diff_orig-128.png"></img></dd>
+<dt>160k vs 128k</dt>
+<dd><img width="600" src="src/20260520_diff_160-128.png"></img></dd>
+<div class="shiritori">
+<h5>しりとり</h5>
+<dl>
+<dt>招聘（しょうへい）</dt>
+<dd>対価を差し出して慇懃に人を呼ぶこと。</dd>
+</dl>
+</div>
+<p>画像はモノラルの方が見やすかったな。まずった。</p>
+</div>
+<p class="jump"><a class="jump" href="#top-title">ページ上部へ</a></p>
+</section>
+<!--↑ここまでだからねっ！-->
 
 <!--↑ここに新しい日記を挿れるんだからねっ！-->
 
