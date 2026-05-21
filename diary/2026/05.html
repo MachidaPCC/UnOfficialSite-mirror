@@ -7,7 +7,7 @@
   <link id="custom-style" rel="stylesheet" type="text/css" href="/css/blue/main.css">
   <script type="text/javascript" src="/js/init.js"></script>
 </head>
-<body><script type="text/javascript" charset="utf-8" src="//asumi.shinobi.jp/encount"></script>
+<body>
 
 <header>
 <a id="top-title" href="/">
@@ -674,43 +674,51 @@
 <time datetime="2026-05-20"><h3>05月20日 翠曜日</h3></time>
 <div class="author">written by おうち</div>
 <div class="d_content">
-<style>#\32 0{font-family:monospace;}#filesize *{font-size:1.2rem;padding:.5rem;}</style>
-<p>個人的な覚書ですスミマセン。</p><br><br>
-<p>コマンド</p>
+<style>#\32 0{font-family:monospace;}#filesize *{padding:.2rem .5rem;}#filesize td{text-align:right}</style>
+<p>個人的な覚書ですスミマセン。</p>
+<h5>コマンド</h5>
 <dl>
 <dt>opus エンコード</dt>
-<dd>opusenc INPUT.wav --bitrate 160 --vbr temp.opus</dd>
+<dd>opusenc INPUT.wav --bitrate 160 --vbr OUTPUT.opus</dd>
+<dt>lame エンコード</dt>
+<dd>lame INPUT.wav -b 320 OUTPUT.mp3</dd>
 <dt>スペクトログラム表示</dt>
-<dd>sox INPUT.wav -n rate 44.1k spectrogram -o opus.png</dd>
+<dd>sox INPUT.wav -n rate 44.1k spectrogram -o OUTPUT.png</dd>
 <dt>差分比較（単体）</dt>
-<dd>ffmpeg -i LEFT.png -i RIGHT.png -filter_complex "[0][1]blend=all_mode=difference" -y output.png</dd>
+<dd>ffmpeg -i LEFT.png -i RIGHT.png -filter_complex "[0][1]blend=all_mode=difference" -y OUTPUT.png</dd>
 <dt>差分比較（並べる）</dt>
-<dd>ffmpeg -i LEFT.png -i RIGHT.png -filter_complex "[0]split[0a][0b];[1]split[1a][1b];[0a][1a]hstack[vs];[0b][1b]blend=all_mode=difference,pad=2*iw:ih:0:0[bl];[vs][bl]vstack" -y output.png</dd>
-</dl><br><br>
-<p>opus vbr ビットレート比較 160k vs 128k</p><br>
-<p>ファイルサイズ比較</p>
+<dd>ffmpeg -i LEFT.png -i RIGHT.png -filter_complex "[0]split[0a][0b];[1]split[1a][1b];[0a][1a]hstack[vs];[0b][1b]blend=all_mode=difference,pad=2*iw:ih:0:0[bl];[vs][bl]vstack" -y OUTPUT.png</dd>
+</dl>
+<h5>各種コーデック比較</h5>
+<h6>ファイルサイズ</h6>
 <table id="filesize">
-<tr><th>codec</th><th>kbyte</th><th>rate</th></tr>
-<tr><td>wave</td><td>42410</td><td>1.000</td></tr>
-<tr><td>alac</td><td>25566</td><td>0.603</td></tr>
-<tr><td>flac</td><td>24899</td><td>0.587</td></tr>
-<tr><td>opus (160k)</td><td>4917</td><td>0.116</td></tr>
-<tr><td>opus (128k)</td><td>3944</td><td>0.093</td></tr>
-</table><br><br>
-<p>スペクトログラム比較</p>
+<tr><th>codec</th><th>byte</th><th>rate</th></tr>
+<tr><td>wave</td><td>1,769,550</td><td>1.000</td></tr>
+<tr><td>alac</td><td>1,075,490</td><td>0.608</td></tr>
+<tr><td>flac</td><td>1,056,323</td><td>0.597</td></tr>
+<tr><td>aac 160k</td><td>247,887</td><td>0.140</td></tr>
+<tr><td>aac 128k</td><td>199,680</td><td>0.113</td></tr>
+<tr><td>mp3 160k</td><td>201,665</td><td>0.116</td></tr>
+<tr><td>mp3 128k</td><td>161,331</td><td>0.091</td></tr>
+<tr><td>opus 160k</td><td>196,480</td><td>0.111</td></tr>
+<tr><td>opus 128k</td><td>157,632</td><td>0.089</td></tr>
+</table>
+<h6>スペクトログラム</h6>
 <dl>
 <dt>original</dt>
 <dd><img width="600" src="src/20260520_orig.png"></img></dd>
-<dt>opus 160k</dt>
-<dd><img width="600" src="src/20260520_160k.png"></img></dd>
-<dt>opus 128k</dt>
-<dd><img width="600" src="src/20260520_128k.png"></img></dd>
-<dt>orig vs 160k</dt>
-<dd><img width="600" src="src/20260520_diff_orig-160.png"></img></dd>
-<dt>orig vs 128k</dt>
-<dd><img width="600" src="src/20260520_diff_orig-128.png"></img></dd>
-<dt>160k vs 128k</dt>
-<dd><img width="600" src="src/20260520_diff_160-128.png"></img></dd>
+<dt>apple aac 80k</dt>
+<dd><img width="600" src="src/20260520_aac160-diff.png"></img></dd>
+<dt>apple aac 64k</dt>
+<dd><img width="600" src="src/20260520_aac128-diff.png"></img></dd>
+<dt>lame mp3 80k</dt>
+<dd><img width="600" src="src/20260520_lame160-diff.png"></img></dd>
+<dt>lame mp3 64k</dt>
+<dd><img width="600" src="src/20260520_lame128-diff.png"></img></dd>
+<dt>opusenc 80k</dt>
+<dd><img width="600" src="src/20260520_opus160-diff.png"></img></dd>
+<dt>opusenc 64k</dt>
+<dd><img width="600" src="src/20260520_opus128-diff.png"></img></dd>
 <div class="shiritori">
 <h5>しりとり</h5>
 <dl>
@@ -718,7 +726,7 @@
 <dd>対価を差し出して慇懃に人を呼ぶこと。</dd>
 </dl>
 </div>
-<p>画像はモノラルの方が見やすかったな。まずった。</p>
+<p><br>こっそり修正……（5/21）</p>
 </div>
 <p class="jump"><a class="jump" href="#top-title">ページ上部へ</a></p>
 </section>
@@ -752,5 +760,5 @@
 <div style="text-align: center;"><div style="display: inline-block; position: relative; z-index: 9999;"><script type="text/javascript" charset="utf-8" src="//asumi.shinobi.jp/fire?f=434"></script></div></div>
 </footer>
 
-<div style="text-align: center;"><div style="display: inline-block; position: relative; z-index: 9999;"><script type="text/javascript" charset="utf-8" src="//asumi.shinobi.jp/fire?f=434"></script></div></div></body>
+</body>
 </html>
