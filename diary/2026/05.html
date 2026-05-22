@@ -7,7 +7,7 @@
   <link id="custom-style" rel="stylesheet" type="text/css" href="/css/blue/main.css">
   <script type="text/javascript" src="/js/init.js"></script>
 </head>
-<body>
+<body><script type="text/javascript" charset="utf-8" src="//asumi.shinobi.jp/encount"></script>
 
 <header>
 <a id="top-title" href="/">
@@ -59,6 +59,8 @@
   <li><a href="#18">05-18 おうち</a></li>
   <li><a href="#19">05-19 おうち</a></li>
   <li><a href="#20">05-20 おうち</a></li>
+  <li><a href="#21">05-21 おうち</a></li>
+  <li><a href="#22">05-22 おうち</a></li>
   </ol>
   </section>
 </nav>
@@ -674,7 +676,7 @@
 <time datetime="2026-05-20"><h3>05月20日 翠曜日</h3></time>
 <div class="author">written by おうち</div>
 <div class="d_content">
-<style>#\32 0{font-family:monospace;}#filesize *{padding:.2rem .5rem;}#filesize td{text-align:right}</style>
+<style>#\32 0{font-family:monospace;}#\32 0 td{padding:.2rem .5rem;text-align:right}#imgt td,#imgt img{padding:0;}#imgt img{width:100%;display:block;}</style>
 <p>個人的な覚書ですスミマセン。</p>
 <h5>コマンド</h5>
 <dl>
@@ -682,43 +684,30 @@
 <dd>opusenc INPUT.wav --bitrate 160 --vbr OUTPUT.opus</dd>
 <dt>lame エンコード</dt>
 <dd>lame INPUT.wav -b 320 OUTPUT.mp3</dd>
+<dt>AoTuV エンコード</dt>
+<dd>venc -q9 INPUT.wav OUTPUT.ogg</dd>
 <dt>スペクトログラム表示</dt>
 <dd>sox INPUT.wav -n rate 44.1k spectrogram -o OUTPUT.png</dd>
-<dt>差分比較（単体）</dt>
+<dt>差分画像</dt>
 <dd>ffmpeg -i LEFT.png -i RIGHT.png -filter_complex "[0][1]blend=all_mode=difference" -y OUTPUT.png</dd>
-<dt>差分比較（並べる）</dt>
-<dd>ffmpeg -i LEFT.png -i RIGHT.png -filter_complex "[0]split[0a][0b];[1]split[1a][1b];[0a][1a]hstack[vs];[0b][1b]blend=all_mode=difference,pad=2*iw:ih:0:0[bl];[vs][bl]vstack" -y OUTPUT.png</dd>
 </dl>
 <h5>各種コーデック比較</h5>
 <h6>ファイルサイズ</h6>
 <table id="filesize">
-<tr><th>codec</th><th>byte</th><th>rate</th></tr>
-<tr><td>wave</td><td>1,769,550</td><td>1.000</td></tr>
-<tr><td>alac</td><td>1,075,490</td><td>0.608</td></tr>
-<tr><td>flac</td><td>1,056,323</td><td>0.597</td></tr>
-<tr><td>aac 160k</td><td>247,887</td><td>0.140</td></tr>
-<tr><td>aac 128k</td><td>199,680</td><td>0.113</td></tr>
-<tr><td>mp3 160k</td><td>201,665</td><td>0.116</td></tr>
-<tr><td>mp3 128k</td><td>161,331</td><td>0.091</td></tr>
-<tr><td>opus 160k</td><td>196,480</td><td>0.111</td></tr>
-<tr><td>opus 128k</td><td>157,632</td><td>0.089</td></tr>
+<caption>wave=1000, alac=608, flac=597</caption>
+<tr><th>codec</th><th>128k</th><th>160k</th><th>192k</th><th>256k</th><th>320k</th></tr>
+<tr><td>qaac aac cvbr</td><td>113</td><td>140</td><td>150</td><td>202</td><td>286</td></tr>
+<tr><td>lame mp3 vbr</td><td>91</td><td>114</td><td>137</td><td>182</td><td>228</td></tr>
+<tr><td>aotuv ogg cbr</td><td>93</td><td>113</td><td>132</td><td>171</td><td>220</td></tr>
+<tr><td>opusenc opus vbr</td><td>90</td><td>111</td><td>133</td><td>176</td><td>218</td></tr>
 </table>
 <h6>スペクトログラム</h6>
-<dl>
 <dt>original</dt>
-<dd><img width="600" src="src/20260520_orig.png"></img></dd>
-<dt>apple aac 80k</dt>
-<dd><img width="600" src="src/20260520_aac160-diff.png"></img></dd>
-<dt>apple aac 64k</dt>
-<dd><img width="600" src="src/20260520_aac128-diff.png"></img></dd>
-<dt>lame mp3 80k</dt>
-<dd><img width="600" src="src/20260520_lame160-diff.png"></img></dd>
-<dt>lame mp3 64k</dt>
-<dd><img width="600" src="src/20260520_lame128-diff.png"></img></dd>
-<dt>opusenc 80k</dt>
-<dd><img width="600" src="src/20260520_opus160-diff.png"></img></dd>
-<dt>opusenc 64k</dt>
-<dd><img width="600" src="src/20260520_opus128-diff.png"></img></dd>
+<dd><img width="600" src="src/20260520_orig.png"></dd>
+<input type="button" value="show images (10.4 MB)" onclick="(()=>{imgtbody.insertAdjacentHTML('beforeend',`<tr><td>codec</td><td>128k</td><td>160k</td><td>192k</td><td>256k</td><td>320k</td></tr><tr><td>apple aac</td><td><img src='src/diff.m4a.128.png'></td><td><img src='src/diff.m4a.160.png'></td><td><img src='src/diff.m4a.192.png'></td><td><img src='src/diff.m4a.256.png'></td><td><img src='src/diff.m4a.320.png'></td></tr><tr><td>lame mp3</td><td><img src='src/diff.mp3.128.png'></td><td><img src='src/diff.mp3.160.png'></td><td><img src='src/diff.mp3.192.png'></td><td><img src='src/diff.mp3.256.png'></td><td><img src='src/diff.mp3.320.png'></td></tr><tr><td>aotuv ogg</td><td><img src='src/diff.ogg.128.png'></td><td><img src='src/diff.ogg.160.png'></td><td><img src='src/diff.ogg.192.png'></td><td><img src='src/diff.ogg.256.png'></td><td><img src='src/diff.ogg.320.png'></td></tr><tr><td>opusenc opus</td><td><img src='src/diff.opus.128.png'></td><td><img src='src/diff.opus.160.png'></td><td><img src='src/diff.opus.192.png'></td><td><img src='src/diff.opus.256.png'></td><td><img src='src/diff.opus.320.png'></td></tr>`);this.remove()})()">
+<table id="imgt">
+<tbody  id="imgtbody"></tbody>
+</table>
 <div class="shiritori">
 <h5>しりとり</h5>
 <dl>
@@ -726,11 +715,69 @@
 <dd>対価を差し出して慇懃に人を呼ぶこと。</dd>
 </dl>
 </div>
-<p><br>こっそり修正……（5/21）</p>
 </div>
 <p class="jump"><a class="jump" href="#top-title">ページ上部へ</a></p>
 </section>
 <!--↑ここまでだからねっ！-->
+
+<!--↓ここからだからねっ！-->
+<section id="21" class="diary">
+<time datetime="2026-05-21"><h3>05月21日 木曜日</h3></time>
+<div class="author">Written by: おうち</div>
+<div class="d_content">
+<p>とうとう文字よりも画像の多い日記を書いて（？）しまった。おうちです。昨日を資料編、今日を解説編とするので許してクダサイ。</p><br>
+<p>私は CD から取り込んだ音楽をスマートフォンに入れているのですが、容量が足りないのでそろそろ圧縮しようと思いまして、今まで最高品質だがサイズが大きい可逆圧縮のコーデックを使っていたところを品質は劣るが現実的なサイズに抑えられる非可逆圧縮のコーデックに切り替えることにしました。そこで主要な形式のファイルサイズとスペクトログラムを簡単に比較してみたのが昨日の日記です。ちなみに登場時期は mp3 → aac → ogg → opus です、たぶん。</p><br>
+<p>上にスクロールして show images ボタンをクリックするとコーデック／ビットレートごとのスペクトログラムが表示されます。表の中の画像は original との差分なので、色が残っている部分が圧縮時に失われたところです。なお、画像は右チャンネルのみ抜き出していますがビットレートは全てステレオ換算で書きます。</p><br>
+<p>aac と mp3 は 192 kbps まで、 ogg は 256 kbps まで、opus は 128 kbps まで開始部分のロスが目立ちます（<s>aac の収録時間がわずかにずれていますが原因は不明です。</s> → 修正しましたが原因は依然不明）。カットオフ周波数は opus は常に 20 kHz、他は 18 kHz から段階的に高くしているようです。aac は256 kbps 以降は 22 kHz まで全て採っていますがファイルサイズは大きめ。</p>
+<p>youtube が opus 160 kbps を採用しているとおり opus の品質は 160 kbps で殆ど最大です。<s>aac は全体にロスが多いですが前半の不自然な点は mp3、ogg よりいくらかマシ</s> → 修正しました。256 kbps では不自然な点が気になるもののオリジナルに近い品質で、320 kbps ではその点もなくなり可聴域はオリジナルと見分けがつきません。</p>
+<p>mp3 と ogg は 320 kbps でも不自然な点が気になりますが、opus と aac はほとんどオリジナルと同等です。</p><br>
+<p>というわけで品質では opus > aac > mp3 ≒ ogg、サイズは opus ≦ ogg &lt; mp3 &lt; aac となりました。opus と ogg は同じくらいのサイズですが、同ビットレートにおける品質は opus の方が高いため、実質的には opus の優勝でしょう。</p><br>
+<p>ただこの opus、あまりサポートされていないという重大な欠点があります。こればかりは性能が良くてもどうしようもないのですが……。私は iPhone ユーザーなので iTunes でスマートフォンの音楽を管理していますが、なんと iTunes は wave、flac、ogg、opus に対応していません。代わりに alac と aac を推していますがこの 2 つは特別良く出来たコーデックでもないので意味不明です。</p>
+<p>opus 160 kbps くらいに切り替えようと思っていたのですが、元から使えないのではどうしようもないですね。iPhone の空き容量を増やすか、opus 対応のアプリケーションを探すか、aac で我慢するかの 3 択になりそうです。</p>
+<div class="shiritori">
+<h5>しりとり</h5>
+<dl>
+<dt>犬（いぬ）</dt>
+<dd>価値の劣るもの、無駄なもの、惨めなものの象徴。</dd>
+</dl>
+</div>
+</div>
+<p class="jump"><a class="jump" href="#top-title">ページ上部へ</a></p>
+</section>
+<!--↑ここまでだからねっ！-->
+
+<!--↓ここからだからねっ！-->
+<section id="22" class="diary">
+<time datetime="2026-05-22"><h3>05月22日 金曜日</h3></time>
+<div class="author">Written by: おうち</div>
+<div class="d_content">
+<p>どうも。歴史を改変しまっくているおうちです。実は過去の日記を書き換えるという罪をしばしば犯しており、昨日一昨日の日記も 2、3 回改竄しています。良くないね。</p><br>
+<p>で、20 日と 21 日のは何が変わったかというと aac の評価がちょっと良くなりました。iTunes を使って変換したところ何故か収録時間が僅かに伸びるという不具合に直面し、スペクトログラムがずれて実際より悪い結果に見えていたのです。今日 iTunes から dll を物故抜いてコマンドラインの qaac でやり直したのですが当然と言えば当然に同じ結果になったので強引に切り抜いて揃えてしまいました。すると aac の品質が思ったよりもずっと良いことが分かり、上の結論に達したというわけです。</p><br>
+<p>現状 iPhone 12 mini の容量 64 GB 中 15 GB くらいが音楽に占められているので、それが半分になるだけでも十分有り難い。他のミュージックライブラリーも探してはみましたが欲しい機能を揃えたものはなかなか見つからず、それなら多少嵩張りますが aac に変換して純正の Music App をこのまま使うのが最も現実的でした。</p>
+<p>ちなみに欲しかった機能は</p>
+<ul>
+<li>opus の再生</li>
+<li>5 段階以上の評価</li>
+<li>楽曲毎の再生数の記録と出力</li>
+<li>評価、作曲者による絞り込み</li>
+</ul>
+<p>の 4 点。自宅のデスクトップでは MusicBee を気に入って使っているのですが、iOS でこれら全てに対応しているアプリケーションはありませんでした。というか 3 つに妥協してもなかった。</p><br>
+<p>というわけで MusicBee にて aac エンコーダーの設定をし、iTunes のファイルを全て aac 320 kbps に変換しました。本当は 256 kbps で十分なのですが、どうしても気分的に品質は高くしておきたくなってしまうのですよね。</p><br>
+<p>エンコードが終わったのでサイズを比べます。wave で 29.2 GB、alac で 15.3 GB、aac 320 kbps で 6.6 GB でした。wave の 23%、alac の 43% くらいです。非可逆圧縮はすごいなあ。貶してごめんよ。</p><br>
+<p>それはそうとして iTunes の仕様が色々とおかしいのは許してないからな。早く修正しろよ。</p>
+<div class="shiritori">
+<h5>しりとり</h5>
+<dl>
+<dt>温もり（ぬくもり）</dt>
+<dd>我々に足りないもの。</dd>
+</dl>
+</div>
+<p>tip: 阿部寛の背景フォントは Lucida Calligraphy。</p>
+</div>
+<p class="jump"><a class="jump" href="#top-title">ページ上部へ</a></p>
+</section>
+<!--↑ここまでだからねっ！-->
+
 
 <!--↑ここに新しい日記を挿れるんだからねっ！-->
 
@@ -760,5 +807,5 @@
 <div style="text-align: center;"><div style="display: inline-block; position: relative; z-index: 9999;"><script type="text/javascript" charset="utf-8" src="//asumi.shinobi.jp/fire?f=434"></script></div></div>
 </footer>
 
-</body>
+<div style="text-align: center;"><div style="display: inline-block; position: relative; z-index: 9999;"><script type="text/javascript" charset="utf-8" src="//asumi.shinobi.jp/fire?f=434"></script></div></div></body>
 </html>
