@@ -7,7 +7,7 @@
   <link id="js-customstyle" rel="stylesheet" type="text/css" href="/css/blue/main.css">
   <script type="text/javascript" src="/js/init.js"></script>
 </head>
-<body><script type="text/javascript" charset="utf-8" src="//asumi.shinobi.jp/encount"></script>
+<body>
 
 <a id="layout-header" href="/">
   <span id="style-header-metro">都立町田高校</span>
@@ -46,6 +46,7 @@
 <li><a href="#11">07-11 おうち</a></li>
 <li><a href="#12">07-12 おうち</a></li>
 <li><a href="#13">07-13 kb</a></li>
+<li><a href="#14">07-14 おうち</a></li>
   </ol>
 </nav>
 
@@ -390,6 +391,45 @@
 </section>
 <!--↑ここまでだからねっ！-->
 
+<!--↓ここからだからねっ！-->
+<section id="14" class="diary">
+<time datetime="2026-07-14"><h3>07月14日 火曜日</h3></time>
+<div class="author">written by おうち</div>
+<div class="d_content">
+<p>やっほい。おうちだヨ。政策活動を報告します。</p>
+<br>
+<p>最近の更新にも書いたとおり、labo のテーブルエディターを改良しました。<a href="/diary/2026/07.html#10">先日の日記</a>で kb が机編集機を使ったと言っていたのですが、その表がセル内で改行している代物で、そのような使用方法は想定していなかったので対応すべくアップデートした次第です。</p>
+<p>もともとセルの入力には input タグを使っていたので、改行に対応するならということで textarea を使う開拓を進めていました。入力に応じて幅や高さが伸縮するような textarea を作っていたのです。が、別のもっと良いやり方を思いついたので結局没に。というわけで、まずはサイズ可変 textarea を公開して供養します。</p>
+<br>
+<fieldset>
+<div class="container">
+  <textarea class="item" placeholder="normal"></textarea>
+  <textarea class="item vertical" placeholder="vertical"></textarea>
+  <textarea class="item horizontal" placeholder="horizontal"></textarea>
+  <textarea class="item both" placeholder="both directions"></textarea>
+</div>
+<style>.item{margin:1rem;min-width:12rem;max-width:18rem;min-height:6rem;max-height:12rem;resize:none}.container{display:flex;align-items:center;flex-direction:column}</style>
+<script>(()=>{const sum=(styles,arr)=>arr.map(v=>Number(styles[v].slice(0,-2))).reduce((a,b)=>a+b,0);Array.from(document.getElementsByClassName("vertical")).forEach(e=>{const dummy=document.createElement("div");const styles=getComputedStyle(e);const padding=(styles.boxSizing==="content-box")?sum(styles,["paddingTop","paddingBottom","borderTopWidth","borderBottomWidth"]):0;for(s of styles){dummy.style[s]=styles[s]}dummy.style.height="fit-content";dummy.style.visibility="hidden";dummy.style.position="absolute";e.addEventListener("input",v=>{dummy.textContent=v.target.value+"\u200b";e.style.height=dummy.offsetHeight-padding+"px"});e.insertAdjacentElement("beforebegin",dummy)});Array.from(document.getElementsByClassName("horizontal")).forEach(e=>{const dummy=document.createElement("div");const styles=getComputedStyle(e);const padding=(styles.boxSizing==="content-box")?sum(styles,["paddingLeft","paddingRight","borderLeftWidth","borderRightWidth"]):0;for(s of styles){dummy.style[s]=styles[s]}dummy.style.width="fit-content";dummy.style.visibility="hidden";dummy.style.position="absolute";e.addEventListener("input",v=>{dummy.textContent=v.target.value+"\u0020";e.style.width=dummy.offsetWidth-padding+"px"});e.insertAdjacentElement("beforebegin",dummy)});Array.from(document.getElementsByClassName("both")).forEach(e=>{const dummy=document.createElement("div");const styles=getComputedStyle(e);const[padX,padY]=(styles.boxSizing==="content-box")?[sum(styles,["paddingLeft","paddingRight","borderLeftWidth","borderRightWidth"]),sum(styles,["paddingTop","paddingBottom","borderTopWidth","borderBottomWidth"])]:[0,0];for(s of styles){dummy.style[s]=styles[s]}dummy.style.width=dummy.style.height="fit-content";dummy.style.visibility="hidden";dummy.style.position="absolute";e.addEventListener("input",v=>{dummy.textContent=v.target.value+"\u0020\u200b";e.style.width=dummy.offsetWidth-padX+"px";e.style.height=dummy.offsetHeight-padY+"px"});e.insertAdjacentElement("beforebegin",dummy)})})();</script>
+</fieldset>
+<br>
+<p>javascript のみで対応しており、textarea 要素でクラスを設定するだけで伸縮してくれます。さらに、css での min-width や max-height も効き、box-sizing を content にしても border にしても綺麗な見た目になるよう計算されています。いやー素晴らしい。仕組みは単純で、textarea の計算済み css を完コピした div 要素を用意して、textarea の中身を転写し、textarea の大きさを div の大きさと合わせているという感じです。実装で一番詰まったのはこの大きさを合わせる部分で、要素に設定する height と javascript で取得できる高さ（clientHeight や offsetHeight）にズレがあるところですかね。最終的に差分を計算して調整することで解消しています。</p>
+<br>
+<p>非本題はこのくらいにしておいて、卓生成器の方を解説しましょう。テーブルエディターには contentEditable 属性を使ってみました。ウェブページを直接編集できるようにするかを設定する属性です。<a href="javascript:(e=>document.body.contentEditable=(e==='true')?true:(e==='false')?'plaintext-only':false)(document.body.contentEditable)">ここ</a>をクリックするとこのページの編集をオンオフできるようにしておきました。試してみてください。クリックするたびに値が true、false、plaintext-only と変化します。</p>
+<p>で、新テーブルエディターでは各セルの contentEditable を plaintext-only にすることで直接編集可能にしているのです。true でなく plaintext-only なのはリッチテキスト的なモノを反映させるのが面倒、もとい不要だから。他サイトからコピペしたときに書式が残るのも嫌ですよね。逆に色を付けたり太字にしたい場合は html を中身にそのまま記述できるようにしています。普通は特殊文字をエスケープするのですが、その逆です（何と呼ぶのでしょうか、とりあえずプログラムでは stay という関数にしていますが）。</p>
+<p>その他の細かい変更は今回から更新履歴を labo のページの下部に書くようにしたのでそちらをご覧ください。というか今見てください。いくぜ！　もはやお家芸の labo 埋め込み！</p>
+<style>#d0714{margin:1rem 0;width:100%;height:66vh}</style>
+<iframe id="d0714" src="/labo/table_gen/"></iframe>
+<div class="shiritori">
+<h5>しりとり</h5>
+<dl>
+<dt>膂力（りょりょく）</dt>
+<dd>筋肉の力。腕の力。「りょりょ」で始まる言葉は大辞林にこれ 1 つしか載っていない。</dd>
+</dl>
+</div>
+</div>
+<p class="style-next"><a class="style-jump" href="#layout-header">ページ上部へ</a></p>
+</section>
+<!--↑ここまでだからねっ！-->
 
 <!--↑ここに新しい日記を挿れるんだからねっ！-->
 
@@ -406,5 +446,5 @@
 <footer id="layout-footer">
   <address id="layout-footer-copyright">Copyright© Machida High School Personal Computer Club</address>
 </footer>
-<div style="text-align: center;"><div style="display: inline-block; position: relative; z-index: 9999;"><script type="text/javascript" charset="utf-8" src="//asumi.shinobi.jp/fire?f=434"></script></div></div></body>
+</body>
 </html>
