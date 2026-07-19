@@ -7,7 +7,7 @@
   <link id="js-customstyle" rel="stylesheet" type="text/css" href="/css/blue/main.css">
   <script type="text/javascript" src="/js/init.js"></script>
 </head>
-<body><script type="text/javascript" charset="utf-8" src="//asumi.shinobi.jp/encount"></script>
+<body>
 
 <a id="layout-header" href="/">
   <span id="style-header-metro">都立町田高校</span>
@@ -49,6 +49,7 @@
 <li><a href="#14">07-14 おうち</a></li>
 <li><a href="#16">07-16 おうち</a></li>
 <li><a href="#18">07-18 おうち</a></li>
+<li><a href="#19">07-19 おうち</a></li>
   </ol>
 </nav>
 
@@ -504,6 +505,41 @@
 </section>
 <!--↑ここまでだからねっ！-->
 
+<!--↓ここからだからねっ！-->
+<section id="19" class="diary">
+<time datetime="2026-07-19"><h3>07月19日 日曜日</h3></time>
+<div class="author">Written by: おうち</div>
+<div class="d_content">
+<p>夏休みですねぇ。おうちです。</p>
+<br>
+<p>実は日記に書くだけ書いて実行していないことが山積みなのですが、今日はそのうちの 1 つを消化。昔作ってお蔵入りと相なった divtables とかいうスクリプトを書き直しました。日記で話題に出したのは <a href="/diary/2026/02.html#21">2/21</a>、<a href="/diary/2026/02.html#23">2/23</a>、<a href="/diary/2026/05.html#11">5/11</a> のようです。私の日記一覧用に使っていたのですが、流石に中身が汚いのと、そこでしか使わないならもっと簡潔にできそうなのと、で作り直した次第。</p>
+<br>
+<p>大したことはしていないので<a href="/members/2027/OUCHI.html">実物</a>を見てもらえればそれで良いのですが、まあ、せっかくなので色々書き残しておきます。</p>
+<br>
+<p>そもそもこれは何なのかというと、2 次元配列を table 要素にして並べ替えや絞り込みにも対応できるという感じのモノです。そもそもは表の行を丸ごとハイパーリンクにするために作ったのですが。table、tr、td の代わりに div を使って css で何やかや調整し、行を丸ごと anchor 要素に入れてしまうという設計。</p>
+<br>
+<p>プログラムもそんなに難しいことはしていなくて、注意しているのは元のデータ（弄らない）と表示用のデータ（壊して良い）を分けることくらいです。2 重ループで配列の要素を 1 つずつ取り出して DOM 操作すれば良いだけ。ソートは表示用のデータを並べ替え → 再表示、フィルターは元のデータを絞り込み → 現在の設定で並べ替え → 再表示、という手順を踏んでいます。まあ当たり前。</p>
+<br>
+<p>ああ、こだわった部分はもう少しありました。手動で追加するデータが最小限になるよう、ナンバリングやリンクは自動で作っています。さらに、並べ替えの際にしりとりは別に設定した読みに従うようプログラムしています。これはしりとり一覧もそうしていますね。あと私情ですがデータを json に分離しました、iPad からうpするときは使っているアプリの都合上 html は直接編集できず json は直接編集できるので。</p>
+<br>
+<br>
+<p>うーん。文字が少ない。もう少し何か書くか？</p>
+<br>
+<p>そう、夏休みなんですが、今年は読書が全然捗らないんですよね。「オデュッセイア」はまだ半分くらいしか進んでいません。ゲームのやり過ぎ、twitter の見過ぎでしょうか。確かに、両方封印していた中 3 のときの方がよほど本を読んでいた気がします。先ほど部屋の整理をしていたら当時の読書記録が発掘されました。おそらく勉強内容を記録しようという趣旨で担任が配った夏休みの 1 行日記みたいなプリントに読んだ本がびっしり書いてあり、なんと 1 日に 2 冊以上読んでいます。今じゃ週 1 冊読むか読まないかというくらいなのに。ちなみに私が本を良く読むようになった原因の 1 つは両親や親戚が本読みだったこと、もう 1 つはゲームを禁じられたこと（情けない……）なのですが、その親戚の 1 人は年間 500 冊読むとか言っていました。社会人で職もあるのにですよ。とんでもない人もいるもんですね。</p>
+<br>
+というわけで、小説紹介はまだ停滞しそうです。音声講座？　なな何のことやら<small>知りませんよそんなもの<small>忘れてください<small>ではこの辺で<small>今日はさようなら……</small></small></small></small>
+<div class="shiritori">
+<h5>しりとり</h5>
+<dl>
+<dt>熾（おき）</dt>
+<dd>熾火のこと。勢いよく盛んに燃える炭火。</dd>
+</dl>
+</div>
+</div>
+<p class="style-next"><a class="style-jump" href="#layout-header">ページ上部へ</a></p>
+</section>
+<!--↑ここまでだからねっ！-->
+
 
 <!--↑ここに新しい日記を挿れるんだからねっ！-->
 
@@ -520,5 +556,5 @@
 <footer id="layout-footer">
   <address id="layout-footer-copyright">Copyright© Machida High School Personal Computer Club</address>
 </footer>
-<div style="text-align: center;"><div style="display: inline-block; position: relative; z-index: 9999;"><script type="text/javascript" charset="utf-8" src="//asumi.shinobi.jp/fire?f=434"></script></div></div></body>
+</body>
 </html>
