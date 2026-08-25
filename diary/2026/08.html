@@ -56,6 +56,7 @@
   <li><a href="#20">08-20 おうち</a></li>
   <li><a href="#22">08-22 おうち</a></li>
   <li><a href="#23">08-23 おうち</a></li>
+  <li><a href="#25">08-25 おうち</a></li>
   </ol>
 </nav>
 
@@ -630,6 +631,30 @@
 </section>
 <!--↑ここまでだからねっ！-->
 
+<!--↓ここからだからねっ！-->
+<section id="25" class="diary" data-author="おうち" data-gen="79">
+<time datetime="2026-08-25"><h3>08月25日 火曜日</h3></time>
+<div class="author">written by おうち</div>
+<div class="d_content">
+<p>こんにちは。おうちです。文化祭があるので少しでも labo を充実しようという試み、今回は <a href="/labo/n_radix/">N 進数相互変換</a>です。</p><br>
+<p>同様の web サービスは良くあるので機能と意匠とで独自性を出してみました。2 から62 進数まで対応し、UI も自分が使いやすいように作ってあります。</p><br>
+<p>なぜ 62 進数なのか、というと 0 - 9、a - z、A - Z で半角文字を網羅できるから。小文字だけで良ければ 36 進数が使えます。ぶっちゃけ 17 進数とか 47 進数とかは要らないような気もするのですが、できることは多ければ多いほどが良いので残しています。</p><br>
+<p>そうすると見た目がごちゃつくという問題も出てきますが、きれいに並べたのでそこまで迷うデザインにはなっていない……はず。flex-wrap で等幅に折り返す方法が分からなかったので画面からはみ出ない高さになるよう設定しました。セレクターで 1 列の選択肢を延々スクロールするよりはマシだと信じたい。</p><br>
+<p>プログラム自体は大したことをしていません。10 進数を媒介して、入力 → 10 進数 → 出力と変換しています。ただ、62 進数ともなると少ない桁で大きな数になるので BigInt を使っています。Number より大きな数を使えるという触れ込みです。実際どういう仕様なのかは理解していません（汗）　が、多分メモリさえあれば際限なく大きくできそうです。</p><br>
+<p>日常的な用途はあまり思いつきませんが、私はパスワードを作るときにたまに使いますね。適当な単語を 36 進数 - 62 進数間で変換すれば一見ランダムだが復元できるパスワードができます。</p><br><br>
+<p>いよいよ週末が文化祭です。私自身は伝統を引き継ぐことができず申し訳ないのですが、やれることはやったので 1 年間の成果を見ていただけると嬉しく思います。現在は products を更新中ですが、大きな変更なので明後日の日記で取り上げるかもしれません。</p>
+<div class="shiritori">
+<h5>しりとり</h5>
+<dl>
+<dt>AF2（えーえふに）</dt>
+<dd>1970 年代に問題になった食品添加物。</dd>
+</dl>
+</div>
+</div>
+<p class="style-next"><a class="style-jump" href="#layout-header">ページ上部へ</a></p>
+</section>
+<!--↑ここまでだからねっ！-->
+
 
 <!--↑ここに新しい日記を挿れるんだからねっ！-->
 
@@ -648,6 +673,6 @@
 <div id="layout-footer-banner" class="access-diary-2026">
   <script type="text/javascript" src="//xa.shinobi.jp/ufo/192316108"></script>
 </div>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a308c7ff8cc9ec10',t:'MTc4NzY0MTg3MQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"1b464aad4cb14e2ea25b2030f823e83c"}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a30910f56f78d774',t:'MTc4NzY0NDg1OQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"1b464aad4cb14e2ea25b2030f823e83c"}' crossorigin="anonymous"></script>
 <div style="text-align: center;"><div style="display: inline-block; position: relative; z-index: 9999;"><script type="text/javascript" charset="utf-8" src="//asumi.shinobi.jp/fire?f=434"></script></div></div></body>
 </html>
