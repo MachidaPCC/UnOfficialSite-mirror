@@ -62,6 +62,8 @@
   <li><a href="#250">10-25 おうち</a></li>
   <li><a href="#26">10-26 kb</a></li>
   <li><a href="#27">10-27 おうち</a></li>
+  <li><a href="#29">10-29 おうち</a></li>
+ <li><a href="#290">10-29 kb</a></li>
   </ol>
 </nav>
 
@@ -999,7 +1001,7 @@
 <p>独特のアイディアがあるものとないものに分けられますが、ある方、SF 的な発想が光る作品はとことん面白いです。「おーい　でてこーい」「ゆきとどいた生活」なんかはその典型で、他の本で話題に出されているのを見たことがある気がします。</p>
 <p>悪魔が度々登場するのも特徴ですかね。妖精というのもあります。大抵は身の丈に合わない願いを叶えようとして破滅する、というインガオホー的なモティーフ。「欲望の城」も悪魔こそ登場しないものの似たようなものでしょう。一方「鏡」は悪魔を変わった使い方で活躍させていて印象的でした。</p><br>
 <p>色褪せないというか、星新一って実はそこそこ昔の作家なはずなんですが、その割には古さを感じません。1926 - 1997 らしいです。そろそろ没後 30 年か。長編も書いているようなのでいつか読んでみようかしらん。</p><br><br>
-<p>そういえば、今日は kb と図書館に行っていました。わけあって中央図書館まで足を運ぶなど。辞書辞典のコーナーをじっくり見たのですが、やはり楽しいですね、ああいうのって。kb は趣味で文章を書くらしいので『日本語大シソーラス』を勧めてみました。物書堂の電子辞書アプリでも購入できるので、スマフォで気軽に引けます。あとは、国書刊行会の『物語要素辞典』があったのが衝撃的でしたね。あれは 2024 年刊行と比較的新しいのでまさかあるとは思っていませんでした。古今東西の物語のエレメントを集めたという変な本です。ああいう自分で買うのが憚られるようなデカい本を読めるというのは、図書館の大きな意義ですよね。そういえば日国の改訂ってどうなったんでしたっけ、と思って調べてみたら、<a href="//www.shogakukan.co.jp/pr/nikkoku3/">ちょうど 2026 年に編集に着手するらしいです</a>。今回は電子版も出るとのことなので、物書堂に出るといいなあ。今あるのは精選版ですが、完全版も期待して良いのでしょうか。10 万語で 100 MB くらいなので、完全版でも昨今のモバイルゲームよりも小さい用量で運用できるのではないかと思います。</p>
+<p>そういえば、今日は kb と図書館に行っていました。わけあって中央図書館まで足を運ぶなど。辞書辞典のコーナーをじっくり見たのですが、やはり楽しいですね、ああいうのって。kb は趣味で文章を書くらしいので『日本語大シソーラス』を勧めてみました。物書堂の電子辞書アプリでも購入できるので、スマフォで気軽に引けます。あとは、国書刊行会の『物語要素辞典』があったのが衝撃的でしたね。あれは 2024 年刊行と比較的新しいのでまさかあるとは思っていませんでした。古今東西の物語のエレメントを集めたという変な本です。ああいう自分で買うのが憚られるようなデカい本を読めるというのは、図書館の大きな意義ですよね。そういえば日国の改訂ってどうなったんでしたっけ、と思って調べてみたら、<a href="//www.shogakukan.co.jp/pr/nikkoku3/">ちょうど 2026 年に編集に着手するらしいです</a>。今回は電子版も出るとのことなので、物書堂に出るといいなあ。今あるのは精選版ですが、完全版も期待して良いのでしょうか。10 万語で 100 MB くらいなので、完全版でも昨今のモバイルゲームよりも小さい用量で運用できるのではないかと思うのです。</p>
 <div class="shiritori">
 <h5>しりとり</h5>
 <dl>
@@ -1012,6 +1014,108 @@
 </section>
 <!--↑ここまでだからねっ！-->
 
+<!--↓ここからだからねっ！-->
+<section id="29" class="diary" data-author="おうち" data-gen="79">
+<time datetime="2026-10-29"><h3>10月29日 木曜日</h3></time>
+<div class="author">written by おうち</div>
+<div class="d_content">
+<p>こんにちは。おうちです。今月はまだ labo で何も公開していなかったので、久々に適当なものを作りました。</p>
+<br>
+<p>LINE というアプリケーションがあります。色々と良くない仕様のあるアプリですが、トーク履歴の出力、これがまた酷い形で出されるので、tsv に整えるプログラムを作りました。名前を <a href="/labo/line2tsv/">LINE2TSV</a> としています。まあ、トーク履歴を使って何かするならパーサーまで作って組み込むだろうから、今回作ったプログラム自体に有用性はあまりありません。頭の体操くらいの気分です。</p>
+<br>
+<p>LINE でトーク履歴を出力すると、テキストファイルが手に入ります。tsv をベースにヘッダーをつけ、日付ごとに区切ったような形です。何故？　何を考えてこんな形に？　tsv がそもそも可読性を高めた形式なのに、下手に弄って可読性も機械操作性も低下させるというのは正気を疑うレベルの所業です。</p>
+<p>とは言っても、ベースが tsv なので変形はそこまで大変な作業ではありませんが。改行コードが使い分けられていることに気が付かず苦戦しましたが、完成させてみれば大したことはありませんでした。ヘッダーを除き、日付で分割し、個々の投稿にその日付をくっつけるだけで大体完成です。改行コードが使い分けられているというのは、いち投稿内の改行にはラインフィード LF を使い、投稿間の区切りにはキャリッジリターン CR とラインフィードを併用しているということです。そもそも改行コードに CR と LF の 2 種類があって……というのは話すと長くなるのですが、とにかく csv や tsv ではこのように改行を区別して扱いやすくするのが慣習のようです。初めて知りましたが確かに合理的です。普段は改行コードが色々あると対応するのが面倒だなあと思っていましたが、意外なところで役立ってるんですね。パッと見でわからないとかシステムによっては勝手に統合されてしまうとかそういう問題はあるので、はじめから統一されていればもっと良い仕組みが普及したような気はしないでもないですが。</p>
+<br>
+<p>トーク履歴では他にも何種類か不可視文字を使ってなんやかやしているようですが、今回のプログラムには関係なさそうなので調べませんでした。暇な人は表示できるソフトウェアで開いてみると面白いかもしれません。</p>
+<br><br>
+<p>そういえば CHIRU 氏に『安達としまむら 2』を借りて読みました。めがっさ面白いです。俺は安達なんだ、誰が何と言おうと（ry　安達は寂しさ、人恋しさからしまむらを求めているように見えますが、今後どうなるのか非常に楽しみです。</p>
+<div class="shiritori">
+<h5>しりとり</h5>
+<dl>
+<dt>ちう（ちう）</dt>
+<dd>ちゅー。キスとか吸引とかの擬音、だと思う。</dd>
+</dl>
+</div>
+</div>
+<p class="style-next"><a class="style-jump" href="#layout-header">ページ上部へ</a></p>
+</section>
+<!--↑ここまでだからねっ！-->
+
+<!--↓ここからだからねっ！-->
+<section id="290" class="diary" data-author="kb" data-gen="79">
+<time datetime="2026-10-29"><h3>10月29日 木曜日</h3></time>
+<div class="author">Written by: kb</div>
+<div class="d_content">
+<p>こんちには　kb25です</p>
+<br><br>
+<p>少し前『たまこラブストーリー』を見ました。</p>
+<p>このアニメ映画は『たまこまーけっと』の続編に当たるもので、『たまこまーけっと』は2013年放送のアニメです。</p>
+<p>『たまこまーけっと』が日常を描くのに対し、『たまこラブストーリー』は示されていた恋愛の結末を描いた内容になっています。</p>
+<br>
+<p>曲の前に少しだけアニメのことを書いておこう。</p>
+<p>この作品はたぶん、主人公の女の子がかわいいということを主張するための作品なんだと思います。</p>
+<p>今まで恋に無自覚だった少女が照れる姿を見るための物語だった。</p>
+<p>あのかわいさは反則級だよ。</p>
+<br>
+<p>『たまこまーけっと』を見ていたときから主人公にはメロメロのクラクラだったのですが、どうも『たまこラブストーリー』でまた新たに好きになれた気がする。</p>
+<p>あの天衣無縫な性格と首元のほくろのセクシーさがね、そのギャップがもうね、頭がバグりそう。</p>
+<br>
+<p>まあもちろん、映画の内容はそれだけではなくて、京アニはしっかりと人物の心情を深ぼりしていました。</p>
+<br>
+<p>とまあそういう関係で、この作品がなかなか面白くて、で、その勢いで主題歌の『プリンシプル』の耳コピをしたんですが、いい曲だったのでここに記しておこうかと。</p>
+<br>
+<br><iframe style="display: block;" allowfullscreen="" src="https://www.youtube.com/embed/RkeP25WRe00?list=RDRkeP25WRe00&start_radio=1&rel=0" width="480" height="270"></iframe>
+<br><br>
+<p>サビを見てほしいんですね。</p>
+<p>聴くと、サビの途中で変な感じのところがありますよね。</p>
+<p>ここが面白いのと、その前からもいいコードになっています。</p>
+<br><br>
+<p>keyE(ミ)</p>
+<br>
+<p>|4(M7)----|5/4----|3(7)----|6(7)----|</p>
+<br>
+<p>|4(M7)----|3(7)--2#(7)--|2(7)--5#dim(7)--|5m(7)--4#aug|</p>
+<br>
+<p>|4(7)----|5/4----|3(7)--5#dim(7)--|6(7)--5--|</p>
+<br>
+<p>|4#(7b5)--5(7)--|</p>
+<br><br>
+<p>どう？試しにこんな風に書いてみたんだけど。</p>
+<p>-が拍で|が小節です。</p>
+<p>まあこれは目安程度に見ておいてください。</p>
+<p>これ以上細かくコードが変わる場合もあるし。</p>
+<br>
+<p>7thも含めてaddコードは()で表します。</p>
+<p>この曲の場合、殆ど7thだからなんか見づらいですけど。</p>
+<br>
+<p>まずはじめの4(M7)→5/4がいい。</p>
+<p>これフライングで前に紹介しちゃったんだけどね。</p>
+<p>ただ王道進行なだけなのに、こんなに表情豊かな音色になるのがすごい。</p>
+<p>やはり7thは素晴らしい。</p>
+<br>
+<p>次に4(M7)→3(7)→2(7)→5#dim(7)→5m(7)→4#augの流れ。</p>
+<p>半音ずつ下がっていって、5#dim(7)で緊張を高めた後に5m(7)にいくんだよな。</p>
+<p>6じゃなくて5mなところがネック。</p>
+<p>こういう部分が、敢えてスカッといかない微妙なニュアンスを作ってるし、柔らかい印象につながっているわけである。</p>
+<br>
+<p>いやあ、やはり実際の曲には工夫がたくさんあるなあ。</p>
+<p>こういうのを知ったとき、この曲はたくさん考えられて作られてるんだな、と思うとなんか感動しますよね。</p>
+<p>作曲者に対して。</p>
+<div class="shiritori">
+<h5>しりとり</h5>
+<dl>
+<dt>うみねこのなく頃に（うみねこのなくころに）</dt>
+<dd>07th Expansionから2007年8月に発売された作品。
+<br>同人作品だから、商業でいう価格帯はあんまり関係ない。
+<br>まあひぐらしと並んで有名だし人気だよなぁ。
+<br>ひぐらしもうみねこも、こいつら海外人気も高いんだよな。国際版もあるぐらいだし。
+<br>因習村の次は孤島が舞台の話。</dd>
+</dl>
+</div>
+</div>
+<p class="style-next"><a class="style-jump" href="#layout-header">ページ上部へ</a></p>
+</section>
+<!--↑ここまでだからねっ！-->
 
 <!--↑ここに新しい日記を挿れるんだからねっ！-->
 
@@ -1031,6 +1135,6 @@
 <div id="layout-footer-banner" class="access-diary">
   <script type="text/javascript" src="//xa.shinobi.jp/ufo/192316105"></script>
 </div>
-<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"1b464aad4cb14e2ea25b2030f823e83c","spa":2}' crossorigin="anonymous"></script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a51a27274e0ddeb7',t:'MTc5MzE5MjczNQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><div style="text-align: center;"><div style="display: inline-block; position: relative; z-index: 9999;"><script type="text/javascript" charset="utf-8" src="//asumi.shinobi.jp/fire?f=434"></script></div></div></body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a5226db59e28ca53',t:'MTc5MzI3OTUxMQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"1b464aad4cb14e2ea25b2030f823e83c","spa":2}' crossorigin="anonymous"></script>
+<div style="text-align: center;"><div style="display: inline-block; position: relative; z-index: 9999;"><script type="text/javascript" charset="utf-8" src="//asumi.shinobi.jp/fire?f=434"></script></div></div></body>
 </html>
