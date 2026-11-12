@@ -48,6 +48,7 @@
   <li><a href="#08">11-08 おうち</a></li>
   <li><a href="#09">11-09 kb</a></li>
   <li><a href="#10">11-10 おうち</a></li>
+  <li><a href="#12">11-12 おうち</a></li>
   </ol>
 </nav>
 
@@ -468,6 +469,59 @@
 </section>
 <!--↑ここまでだからねっ！-->
 
+<!--↓ここからだからねっ！-->
+<section id="12" class="diary" data-author="おうち" data-gen="79">
+<time datetime="2026-11-12"><h3>11月12日 木曜日</h3></time>
+<div class="author">written by おうち</div>
+<div class="d_content">
+<p>どうも、おうちです。邪悪な bookmarklet 第 2 弾、適当なサイトから歌詞をコピーする機能のものを作ってみました。<a href="javascript:((d={'www.uta-net.com':'#kashi_area','utaten.com':'.hiragana','petitlyrics.com':'#lyrics','j-lyric.net':'#Lyric','ikuina.com':'.entry-content%3Ep:nth-child(2)','www.kkbox.com':'.lyrics%3Ep:nth-child(3)','lyricstranslate.com':'#song-body',},f=function(s){navigator.clipboard.writeText(s.replace(/^\s+|\s+$/g,''))})=%3E{const%20a=document.querySelector(d[document.domain]);a.querySelectorAll('rt,.rt').forEach(v=%3Ev.remove());if(document.domain==='petitlyrics.com')$.post('/com/get_lyrics.ajax',{lyrics_id:document.querySelector('meta[property=%22dable:item_id%22]').content},(x,y,z)=%3Ef(x.map(v=%3EBase64.decode(v.lyrics)).join('\n')));else%20f(a.innerText);alert('copied!');})();">こちら</a>からブックマークバーにドラッグなどして、どうぞ。700 バイト近くと予想外にサイズが大きくなってしまった。</p><br>
+<p>動機。買った CD のメタデータを整理する際、歌詞を手動で入力していたのですが、これがかなり面倒臭いのです。せっかく歌詞を掲載しているサイトを見つけても、JAS なんとかのせいで直接コピーできないように細工されてるので、開発者ツールを開いて innerHTML をコピーし、br タグを改行に置換し……と大変な手間を要します。そこで、適当なサイトから歌詞をコピーできる bookmarklet を作ってしまおうと思いたったわけです。</p><br>
+<p>使い方は簡単。「歌ネット」「うたてん」といったサイトで目的のページを開いたら、上の bookmarklet を実行するだけ。ワンクリックでクリップボードに歌詞全文がコピーされます。</p><br>
+<p>せっかくなので圧縮前のコードを掲載。</p>
+<pre>((
+  d={
+    'www.uta-net.com': '#kashi_area',
+    'utaten.com': '.hiragana',
+    'petitlyrics.com': '#lyrics',
+    'j-lyric.net': '#Lyric',
+    'ikuina.com': '.entry-content &gt; p:nth-child(2)',
+    'www.kkbox.com': '.lyrics &gt; p:nth-child(3)',
+    'lyricstranslate.com': '#song-body',
+  },
+  f=function(s){
+    navigator.clipboard.writeText(s.replace(/^\s+|\s+$/g,''))
+  }
+) =&gt; {
+  const a = document.querySelector(d[document.domain]);
+  a.querySelectorAll('rt, .rt').forEach(v =&gt; v.remove());
+  if(document.domain === 'petitlyrics.com')
+    $.post(
+      '/com/get_lyrics.ajax',
+      { lyrics_id: document.querySelector('meta[property="dable:item_id"]').content },
+      (x, y, z) =&gt; f(x.map(v =&gt; Base64.decode(v.lyrics)).join('\n'))
+    );
+  else f(a.innerText);
+  alert('copied!');
+})();</pre>
+<p>中途半端に手動で minify しようとしたものを手動で整形したため、汚い。みょんに長いのは URL の列挙と petitlyrics のせい。元々の部分は 3 行程度で済むはずなんだがなあ。</p><br>
+<p>仕組みを解説。</p>
+<p>まず、bookmarklet が実行されたページのドメインを document.domain で取得し、対応する CSS selector を調べます。予めサイトごとに歌詞が含まれる要素を調べて列挙しているだけなので、書いてある 7 つ以外のサイトでは当然動きません。ついでに言うと document.domain は現在では<a href="https://developer.mozilla.org/ja/docs/Web/API/Document/domain">非推奨</a>だそうです、面倒なので使ってしまっていますが。</p>
+<p>次に、歌詞が含まれる要素を実際に取得し、振り仮名を除きます。これは「うたてん」用の処理です。サイトが petitlyrics でなければ、innerText をコピーさせて終わりです。一件落着。</p>
+<p>で、petitlyrics だった場合です。このサイトは、別の場所からとってきた歌詞を canvas 要素に fillText で描写することで、原理的にコピペ不可能な状態にしています。なかなか小賢しい。仕方ないので、スクリプトを解読して該当部分を組み込んでみました。どうやら base64 エンコードした歌詞を小分けにして json として保存しているようです。まあ、大したことないくせに手間かけさせやがって（＾＾</p><br>
+<p>というわけで、検索エンジンで上位に出てくる大体のサイトに載っている歌詞は、簡単にコピペできるようになりました。次何か買うまで覚えていたら使ってみます。面倒臭がらずもっと早く作っていればよかったなあ。</p>
+<div class="shiritori">
+<h5>しりとり</h5>
+<dl>
+<dt>坤徳（こんとく）</dt>
+<dd>大地の恵み。恵みというか、多分恵む力。</dd>
+</dl>
+</div>
+<p>labo も月 1 ページくらい増設したいので、そのうちなんかやります。そういえば今日は日記執筆補助の手直しもしました。最高の改善を施せたと思ったら穴があり、直したら結局あまりスマートでなくなってしまい落ち込む。機能自体は前より良くなっているはず。多分。</p>
+</div>
+<p class="style-next"><a class="style-jump" href="#layout-header">ページ上部へ</a></p>
+</section>
+<!--↑ここまでだからねっ！-->
+
 <!--↑ここに新しい日記を挿れるんだからねっ！-->
 
 
@@ -486,6 +540,6 @@
 <div id="layout-footer-banner" class="access-diary">
   <script type="text/javascript" src="//xa.shinobi.jp/ufo/192316105"></script>
 </div>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a58dfdc1bfdf218e',t:'MTc5NDQwNzM4OA=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a58dfdc1bfdf218e',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"1b464aad4cb14e2ea25b2030f823e83c","spa":2}' crossorigin="anonymous"></script>
-<div style="text-align: center;"><div style="display: inline-block; position: relative; z-index: 9999;"><script type="text/javascript" charset="utf-8" src="//asumi.shinobi.jp/fire?f=434"></script></div></div></body>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"1b464aad4cb14e2ea25b2030f823e83c","spa":2}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a5968865edcc8067',t:'MTc5NDQ5Njk1Mw=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a5968865edcc8067',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><div style="text-align: center;"><div style="display: inline-block; position: relative; z-index: 9999;"><script type="text/javascript" charset="utf-8" src="//asumi.shinobi.jp/fire?f=434"></script></div></div></body>
 </html>
